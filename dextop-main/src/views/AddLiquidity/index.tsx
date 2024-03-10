@@ -283,8 +283,8 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       .then((estimatedGasLimit) =>
         method(...args, {
           ...(value ? { value } : {}),
-          gasLimit: calculateGasMargin(estimatedGasLimit),
-          gasPrice,
+          //gasLimit: calculateGasMargin(estimatedGasLimit),
+          //gasPrice,
         }).then((response) => {
           setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
 
@@ -598,7 +598,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
               }
               subtitle={t('Receive LP tokens and earn fees.')}
               helper={t(
-                'Liquidity providers earn $INK tokens.',
+                'Liquidity providers earn fees tokens.',
               )}
               backTo={canZap ? () => setSteps(Steps.Choose) : '/liquidity'}
             />

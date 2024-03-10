@@ -126,13 +126,13 @@ export const pulsechain: Chain = {
   },
   rpcUrls: {
     public: 'https://rpc.pulsechain.com',
-    default: 'https://rpc.pulsechain.com',
+    default: 'https://rpc-pulsechain.g4mm4.io',
   },
   blockExplorers: {
     default: { name: 'PulseScan', url: 'https://otter.pulsechain.com' },
   },
   multicall: {
-    address: '0xdc6ed7C2EE5ab7fd303334B34F7524Cbb463DE57',
+    address: '0x083F559993227395009596f77496FDc48e84C69a',
     blockCreated: 18432843,
   },
   testnet: true,
