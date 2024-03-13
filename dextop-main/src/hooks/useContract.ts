@@ -49,7 +49,6 @@ import { useActiveChainId } from './useActiveChainId'
  * Helper hooks to get specific contracts (by ABI)
  */
 
-
 export const useERC20 = (address: string, withSignerIfPossible = true) => {
   const providerOrSigner = useProviderOrSigner(withSignerIfPossible)
   return useMemo(() => getBep20Contract(address, providerOrSigner), [address, providerOrSigner])

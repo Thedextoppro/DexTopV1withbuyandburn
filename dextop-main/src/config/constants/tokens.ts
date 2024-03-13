@@ -70,20 +70,13 @@ export const BUSD: Record<ChainId, Token> = {
   [ChainId.ETHEREUM]: undefined,
   [ChainId.RINKEBY]: undefined,
   [ChainId.GOERLI]: undefined,
-  [ChainId.PULSE_CHAIN]: undefined
+  [ChainId.PULSE_CHAIN]: undefined,
 }
 
 export const bscTokens = {
   wbnb: WBNB[ChainId.BSC],
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'ETH' can be used
-  bnb: new Token(
-    ChainId.BSC,
-    '0x888888888030F38cF1CdA6aD34cCCcB0f83Cd86a',
-    18,
-    'ETH',
-    'ETH',
-    'https://shibaswap.com/',
-  ),
+  bnb: new Token(ChainId.BSC, '0x888888888030F38cF1CdA6aD34cCCcB0f83Cd86a', 18, 'ETH', 'ETH', 'https://shibaswap.com/'),
   leash: new Token(
     ChainId.BSC,
     '0x27C70C9c9Ed3E36a0b2Eb5B6A7CF63316449BDe2',

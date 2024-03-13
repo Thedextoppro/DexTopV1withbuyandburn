@@ -47,7 +47,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
     })
     if (receipt?.status) {
       toastSuccess(t('Contract Enabled'), <ToastDescriptionWithTx txHash={receipt.transactionHash} />)
-      dispatch(fetchFarmUserDataAsync({ account, pids: [pid], chainId: ChainId.PULSE_CHAIN  }))
+      dispatch(fetchFarmUserDataAsync({ account, pids: [pid], chainId: ChainId.PULSE_CHAIN }))
     }
   }, [onApprove, dispatch, account, pid, t, toastSuccess, fetchWithCatchTxError])
 

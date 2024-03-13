@@ -35,6 +35,6 @@ export const lendX = async (lendXContract, pid) => {
   return lendXContract.deposit(pid)
 }
 
-export const zapTokenIn = async (zapContract, from, amount, to, routerAddr, recipient ) => {
+export const zapTokenIn = async (zapContract, from, amount, to, routerAddr, recipient) => {
   return zapContract.zapInToken(from, new BigNumber(amount).toString(), to, routerAddr, recipient)
 }

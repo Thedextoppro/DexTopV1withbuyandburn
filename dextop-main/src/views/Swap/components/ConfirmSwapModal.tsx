@@ -22,7 +22,6 @@ const SwapTransactionErrorContent = ({ onDismiss, message, openSettingModal }) =
       openSettingModal()
     }
   }, [isSlippagedErrorMsg, onDismiss, openSettingModal])
-  
 
   return isSlippagedErrorMsg ? (
     <TransactionErrorContent

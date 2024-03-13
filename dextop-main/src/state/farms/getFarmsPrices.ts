@@ -22,7 +22,10 @@ const getFarmBaseTokenPrice = (
   stable: string,
 ): BigNumber => {
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
-  if (farm.quoteToken.symbol === pulseChainTokens.dai.symbol || farm.quoteToken.symbol === pulseChainTokens.usdc.symbol) {
+  if (
+    farm.quoteToken.symbol === pulseChainTokens.dai.symbol ||
+    farm.quoteToken.symbol === pulseChainTokens.usdc.symbol
+  ) {
     return hasTokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
   }
 
@@ -150,6 +153,6 @@ const nativeStableLpMap = {
   369: {
     address: '0x6753560538eca67617a9ce605178f788be7e524e',
     wNative: 'WPLS',
-    stable: 'USDC'
-  }
+    stable: 'USDC',
+  },
 }

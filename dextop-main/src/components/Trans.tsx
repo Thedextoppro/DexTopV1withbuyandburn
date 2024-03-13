@@ -1,4 +1,3 @@
-
 import { ContextData, TranslationKey } from '@pancakeswap/localization'
 import { useTranslation } from 'contexts/Localization'
 

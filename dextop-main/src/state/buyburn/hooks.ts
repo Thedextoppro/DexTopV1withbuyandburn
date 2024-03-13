@@ -23,5 +23,4 @@ export const useBurnLpData = () => {
       refreshInterval: SLOW_INTERVAL,
     },
   )
-
 }

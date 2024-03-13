@@ -198,7 +198,6 @@ export const getFarmsPrices = (farms: FarmData[], chainId: number): FarmWithPric
           tokenPriceBusd,
         )
 
-        
     return {
       ...farm,
       tokenPriceBusd: tokenPriceBusd.toString(),

@@ -40,7 +40,7 @@ const FooterText = styled.div`
   // ${({ theme }) => theme.mediaQueries.sm} {
   //   width: auto;
   // }
-`
+`;
 
 const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
   items,
@@ -55,7 +55,6 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
 }) => {
   return (
     <StyledFooter data-theme="dark" p={["40px 16px", null, "20px 40px 20px 40px"]} {...props} justifyContent="center">
-
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
           {/* <LogoWithTextIcon isDark width="130px" /> */}
@@ -93,37 +92,42 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
           ))}
           <Box display={["none", null, "block"]}>
             {/* <LogoWithTextIcon isDark width="160px" /> */}
-            <FooterText><br/></FooterText>
-            <br/>
-            <p><div style={{color: '#FFFFFF'}}>  </div></p>
+            <FooterText>
+              <br />
+            </FooterText>
+            <br />
+            <p>
+              <div style={{ color: "#FFFFFF" }}> </div>
+            </p>
             {/* <Link href="https://www.geckoterminal.com/pulsechain/pools/0xc8df4af0c613c8820be2e84e082c6d62afbd4226" color="cyan" target="_blank">GeckoTerminal</Link> */}
           </Box>
           <StyledSocialLinks order={[1]} pb={["0px", null, "0px"]} mb={["0", null, "0px"]} />
         </Flex>
 
-        { <StyledToolsContainer
-          data-theme="dark"
-          order={[1, null, 3]}
-          flexDirection={["column", null, "row"]}
-          justifyContent="space-between"
-        >
-          
-          <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
-           {/* <Box mr="20px">
+        {
+          <StyledToolsContainer
+            data-theme="dark"
+            order={[1, null, 3]}
+            flexDirection={["column", null, "row"]}
+            justifyContent="space-between"
+          >
+            <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
+              {/* <Box mr="20px">
               <CakePrice cakePriceUsd={cakePriceUsd} color="textSubtle" />
             </Box>*/}
-            <Button
-              data-theme="light"
-              as="a"
-              href="https://dextop.pro/swap"
-              target="_blank"
-              scale="sm"
-              endIcon={<ArrowForwardIcon color="backgroundAlt" />}
-            >
-              {buyCakeLabel}
-            </Button>
-          </Flex>
-        </StyledToolsContainer> }
+              <Button
+                data-theme="light"
+                as="a"
+                href="https://dextop.pro/v1"
+                target="_blank"
+                scale="sm"
+                endIcon={<ArrowForwardIcon color="backgroundAlt" />}
+              >
+                {buyCakeLabel}
+              </Button>
+            </Flex>
+          </StyledToolsContainer>
+        }
       </Flex>
     </StyledFooter>
   );

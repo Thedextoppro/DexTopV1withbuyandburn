@@ -54,7 +54,7 @@ const fetchFetchPublicDataOld = async ({ pids, chainId }): Promise<[SerializedFa
     (farmConfig) => pids.includes(farmConfig.pid) && poolLengthAsBigNumber.gt(farmConfig.pid),
   )
   const priceHelperLpsConfig = getFarmsPriceHelperLpFiles(chainId)
-  
+
   const farms = await fetchFarms(farmsCanFetch.concat(priceHelperLpsConfig), chainId)
   const farmsWithPrices = farms.length > 0 ? getFarmsPrices(farms, chainId) : []
   return [farmsWithPrices, poolLengthAsBigNumber.toNumber(), regularCakePerBlock.toNumber()]
@@ -116,7 +116,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     if (!chain || !farmFetcher.isChainSupported(chain.id)) throw new Error('chain not supported')
     try {
       // if (flag === 'old') {
-        return fetchFetchPublicDataOld({ pids, chainId })
+      return fetchFetchPublicDataOld({ pids, chainId })
       // }
       // if (flag === 'api' && !fallback) {
       //   try {

@@ -131,7 +131,7 @@ export const BUSD: Record<ChainId, Token> = {
   [ChainId.GOERLI]: BUSD_GOERLI,
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
-  [ChainId.PULSE_CHAIN]: undefined
+  [ChainId.PULSE_CHAIN]: undefined,
 }
 
 export const DEX = {

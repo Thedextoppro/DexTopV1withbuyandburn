@@ -13,8 +13,8 @@ const textBox = {
   backgroundColor: 'rgba(50, 50, 50, 0.3)',
   borderRadius: '25px',
   border: '1px solid gray',
-  padding: '10px'
-};
+  padding: '10px',
+}
 
 const flyingAnim = () => keyframes`
   from {
@@ -131,35 +131,39 @@ const Hero = () => {
       </style>
 
       <div style={textBox}>
-      <Flex
-        position="relative"
-        flexDirection={['column-reverse', null, null, 'row']}
-        alignItems={['flex-end', null, null, 'center']}
-        justifyContent="center"
-        mt={[account ? '50px' : '30px', null, 0]}
-        id="homepage-hero"
-      >
-        <Flex flex="1" flexDirection="column" style={{ paddingLeft: '10px' }}>
-          <Heading scale="df" color="#fff" mb="24px" style={{ lineHeight: '30px' }}>
-            {t("The DexTop team is working hard on a new product that’s launching SOON.")}
-          </Heading>
-        </Flex>
         <Flex
-          flex={[null, null, null, '1.5']}
-          mb={['24px', null, null, '0']}
           position="relative"
-          style={{ paddingRight: '15px' }}
+          flexDirection={['column-reverse', null, null, 'row']}
+          alignItems={['flex-end', null, null, 'center']}
+          justifyContent="center"
+          mt={[account ? '50px' : '30px', null, 0]}
+          id="homepage-hero"
         >
-          <Flex flex="1" flexDirection="column" style={{ paddingLeft: '30px' }}>
-            <div style={{ color: '#fff', fontSize: '38px' }}>
-              {t('SOMETHING EXCITING LAUNCHING SOON')}
-            </div>
-            <BunnyWrapper>
-              <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} style={{ maxWidth: '40%', borderRadius: '25px', boxShadow: '0 0 8px rgba(0, 0, 0, 1)' }} />
-            </BunnyWrapper>
+          <Flex flex="1" flexDirection="column" style={{ paddingLeft: '10px' }}>
+            <Heading scale="df" color="#fff" mb="24px" style={{ lineHeight: '30px' }}>
+              {t('The DexTop team is working hard on a new product that’s launching SOON.')}
+            </Heading>
+          </Flex>
+          <Flex
+            flex={[null, null, null, '1.5']}
+            mb={['24px', null, null, '0']}
+            position="relative"
+            style={{ paddingRight: '15px' }}
+          >
+            <Flex flex="1" flexDirection="column" style={{ paddingLeft: '30px' }}>
+              <div style={{ color: '#fff', fontSize: '38px' }}>{t('SOMETHING EXCITING LAUNCHING SOON')}</div>
+              <BunnyWrapper>
+                <Image
+                  src={bunnyImage}
+                  priority
+                  placeholder="blur"
+                  alt={t('Lunar bunny')}
+                  style={{ maxWidth: '40%', borderRadius: '25px', boxShadow: '0 0 8px rgba(0, 0, 0, 1)' }}
+                />
+              </BunnyWrapper>
+            </Flex>
           </Flex>
         </Flex>
-      </Flex>
       </div>
     </>
   )

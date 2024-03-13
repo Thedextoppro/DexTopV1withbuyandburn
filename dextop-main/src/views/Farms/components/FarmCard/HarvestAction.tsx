@@ -24,10 +24,10 @@ interface FarmCardActionsProps {
 
 export const getNumberForMobile = (number) => {
   return new Intl.NumberFormat(codeFromStorage, {
-      notation: 'compact',
-      compactDisplay: 'long',
-      maximumSignificantDigits: 2,
-     }).format(number)
+    notation: 'compact',
+    compactDisplay: 'long',
+    maximumSignificantDigits: 2,
+  }).format(number)
 }
 
 const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
@@ -47,7 +47,9 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
       {(pid === 0 || pid === 1) && (
         <>
           <Flex flexDirection="column" alignItems="flex-start">
-            <Heading color={rawEarningsBalance.eq(0) ? 'textDisabled' : 'text'}>{getNumberForMobile(displayBalance)}</Heading>
+            <Heading color={rawEarningsBalance.eq(0) ? 'textDisabled' : 'text'}>
+              {getNumberForMobile(displayBalance)}
+            </Heading>
             {earningsBusd > 0 && (
               <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
             )}

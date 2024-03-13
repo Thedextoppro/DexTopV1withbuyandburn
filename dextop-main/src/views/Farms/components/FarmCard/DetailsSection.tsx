@@ -43,7 +43,6 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   } = useTranslation()
   const { account } = useActiveWeb3React()
   const [onPresentDeposit] = useModal(
-
     <ZapModal
       token0Decimals={farm.token.decimals}
       token1Decimals={farm.quoteToken.decimals}
@@ -81,12 +80,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       )}
       <StyledLinkExternal href={bscScanAddress}>{t('View Contract')}</StyledLinkExternal>
       {!removed && (
-        <Button
-          width="100%"
-          marginTop="8px"
-          disabled={!account}
-          onClick={onPresentDeposit}
-        >
+        <Button width="100%" marginTop="8px" disabled={!account} onClick={onPresentDeposit}>
           Zap in
         </Button>
       )}

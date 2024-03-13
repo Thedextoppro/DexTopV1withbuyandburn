@@ -23,7 +23,6 @@ const CardValue: React.FC<CardValueProps> = ({
   bold = true,
   color = 'text',
 }) => {
-  
   return (
     <Text bold={bold} fontSize={fontSize} style={{ lineHeight }} color={color}>
       {prefix}

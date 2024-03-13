@@ -24,17 +24,15 @@ const flyingAnim = () => keyframes`
   }
 `
 
-
 const InnerWrapper = styled.div`
   // position: absolute;
   width: 100%;
   padding: 20px 0 10px 0;
-
 `
 const BunnyWrapper = styled.div`
   ${({ theme }) => theme.mediaQueries.xs} {
     grid-template-columns: repeat(1, 1fr); /* Two equal-width columns */
-  } 
+  }
   ${({ theme }) => theme.mediaQueries.lg} {
     width: 100%;
     display: grid;
@@ -79,7 +77,7 @@ const Hero = () => {
       </style>
       <Flex flex="1" flexDirection="column" style={{ paddingLeft: '30px' }}></Flex>
       <Heading scale="xxl" color="#000" mb="48px">
-        {t("Q&A")}
+        {t('Q&A')}
       </Heading>
       <Flex
         position="relative"
@@ -91,43 +89,45 @@ const Hero = () => {
       >
         <BunnyWrapper>
           <HeadingSection scale="df" color="#000" mb="24px" style={{ paddingBottom: '0px' }}>
-            <InnerWrapper >
-              {t("Q. What’s available on your platform right now?")}
-            </InnerWrapper>
-            <InnerWrapper >
-              {t("A. With DexTop Finance right now we have our DexTop token, an on chain swap function, X-Yield and Xfortune")}
-            </InnerWrapper>
-          </HeadingSection>
-          <HeadingSection scale="df" color="#000" mb="24px" >
-            <InnerWrapper >
-              {t("Q. As our DexTop token presale has successfully rolled out how do I claim my DEX tokens?")}
-            </InnerWrapper>
-            <InnerWrapper >
-              {t("A. If you participated in the presale, you will just need to head on over to the presale page and claim your tokens")}
+            <InnerWrapper>{t('Q. What’s available on your platform right now?')}</InnerWrapper>
+            <InnerWrapper>
+              {t(
+                'A. With DexTop Finance right now we have our DexTop token, an on chain swap function, X-Yield and Xfortune',
+              )}
             </InnerWrapper>
           </HeadingSection>
-          <HeadingSection scale="df" color="#000" mb="24px" >
-            <InnerWrapper >
-              {t("Q. Is there any risk involved in Defi and DexTop Finance?")}
+          <HeadingSection scale="df" color="#000" mb="24px">
+            <InnerWrapper>
+              {t('Q. As our DexTop token presale has successfully rolled out how do I claim my DEX tokens?')}
             </InnerWrapper>
-            <InnerWrapper >
-              {t("A. There is always risk involved in any project and crypto in general, only invest with risk capital and do your own research, to work out what's best for you.")}
-            </InnerWrapper>
-          </HeadingSection>
-          <HeadingSection scale="df" color="#000" mb="24px" >
-            <InnerWrapper >
-              {t("Q. What is the slippage average on transaction that include the DEX token?")}
-            </InnerWrapper>
-            <InnerWrapper >
-              {t("A. The slippage tolerance for the DEX token as a single swap or liquidity pair is 12%")}
+            <InnerWrapper>
+              {t(
+                'A. If you participated in the presale, you will just need to head on over to the presale page and claim your tokens',
+              )}
             </InnerWrapper>
           </HeadingSection>
-          <HeadingSection scale="df" color="#000" mb="24px" >
-            <InnerWrapper >
-              {t("Q. If I have any technical issues or require assistance what do I do?")}
+          <HeadingSection scale="df" color="#000" mb="24px">
+            <InnerWrapper>{t('Q. Is there any risk involved in Defi and DexTop Finance?')}</InnerWrapper>
+            <InnerWrapper>
+              {t(
+                "A. There is always risk involved in any project and crypto in general, only invest with risk capital and do your own research, to work out what's best for you.",
+              )}
             </InnerWrapper>
-            <InnerWrapper >
-              {t("A. For technical support please contact support (@NomadzMATT) within our official telegram or send an email to our support email address - support@dextop.pro")}
+          </HeadingSection>
+          <HeadingSection scale="df" color="#000" mb="24px">
+            <InnerWrapper>
+              {t('Q. What is the slippage average on transaction that include the DEX token?')}
+            </InnerWrapper>
+            <InnerWrapper>
+              {t('A. The slippage tolerance for the DEX token as a single swap or liquidity pair is 12%')}
+            </InnerWrapper>
+          </HeadingSection>
+          <HeadingSection scale="df" color="#000" mb="24px">
+            <InnerWrapper>{t('Q. If I have any technical issues or require assistance what do I do?')}</InnerWrapper>
+            <InnerWrapper>
+              {t(
+                'A. For technical support please contact support (@NomadzMATT) within our official telegram or send an email to our support email address - support@dextop.pro',
+              )}
             </InnerWrapper>
           </HeadingSection>
         </BunnyWrapper>
@@ -154,8 +154,8 @@ const Hero = () => {
               <Heading scale="df" color="#000" mb="10px" mt="0px">
                 <b>{t('Matt EpicDefi Nomadz')}</b>
               </Heading>
-              <Heading scale="sm" color="#000" mb="24px" >
-                {t("Founder - DexTop Finance")}
+              <Heading scale="sm" color="#000" mb="24px">
+                {t('Founder - DexTop Finance')}
               </Heading>
             </Flex>
           </Flex>
@@ -172,8 +172,8 @@ const Hero = () => {
               <Heading scale="df" color="#000" mb="10px" mt="0px">
                 <b>{t('Andrey V')}</b>
               </Heading>
-              <Heading scale="sm" color="#000" mb="24px" >
-                {t("Project Developer")}
+              <Heading scale="sm" color="#000" mb="24px">
+                {t('Project Developer')}
               </Heading>
             </Flex>
           </Flex>
@@ -190,8 +190,8 @@ const Hero = () => {
               <Heading scale="df" color="#000" mb="10px" mt="0px">
                 <b>{t('Lissanro Rayen')}</b>
               </Heading>
-              <Heading scale="sm" color="#000" mb="24px" >
-                {t("Web Designer")}
+              <Heading scale="sm" color="#000" mb="24px">
+                {t('Web Designer')}
               </Heading>
             </Flex>
           </Flex>
@@ -208,8 +208,8 @@ const Hero = () => {
               <Heading scale="df" color="#000" mb="10px" mt="0px">
                 <b>{t('Krypto Kraft')}</b>
               </Heading>
-              <Heading scale="sm" color="#000" mb="24px" >
-                {t("Graphics Designer")}
+              <Heading scale="sm" color="#000" mb="24px">
+                {t('Graphics Designer')}
               </Heading>
             </Flex>
           </Flex>

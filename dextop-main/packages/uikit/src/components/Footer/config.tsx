@@ -1,6 +1,16 @@
 import { Language } from "../LangSelector/types";
 import { FooterLinkType } from "./types";
-import { TwitterIcon, TelegramIcon, RedditIcon, InstagramIcon, GithubIcon, DiscordIcon, MediumIcon, RocketIcon, ChartIcon } from "../Svg";
+import {
+  TwitterIcon,
+  TelegramIcon,
+  RedditIcon,
+  InstagramIcon,
+  GithubIcon,
+  DiscordIcon,
+  MediumIcon,
+  RocketIcon,
+  ChartIcon,
+} from "../Svg";
 
 export const footerLinks: FooterLinkType[] = [
   {
@@ -98,7 +108,7 @@ export const socials = [
     href: "https://twitter.com/goDexTop",
   },
   {
-  label: "Rocket",
+    label: "Rocket",
     icon: ChartIcon,
     href: "https://dexscreener.com/pulsechain/f:0x556F4C3aAa6c6b76e1BBa0409D99D4a483b29997",
   },

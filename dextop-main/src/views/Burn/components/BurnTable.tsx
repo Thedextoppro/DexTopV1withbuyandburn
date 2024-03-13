@@ -1,6 +1,15 @@
 import { useState, useMemo, useCallback, useEffect, Fragment, Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
-import { Text, Flex, Box, Skeleton, ArrowBackIcon, ArrowForwardIcon, useMatchBreakpoints, Radio } from '@pancakeswap/uikit'
+import {
+  Text,
+  Flex,
+  Box,
+  Skeleton,
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  useMatchBreakpoints,
+  Radio,
+} from '@pancakeswap/uikit'
 import { BurnLpData } from 'state/info/types'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { CurrencyLogo, DoubleCurrencyLogo } from 'views/Info/components/CurrencyLogo'
@@ -72,15 +81,18 @@ let estBurnDex = 0
 let token0s = []
 let token1s = []
 
-const DataRow: React.FC<React.PropsWithChildren<{
-  burnLPData: BurnLpData; index: number;
-  dexPrice: string
-  setSelectedUsd: Dispatch<SetStateAction<number>>
-  setEstBurnDex: Dispatch<SetStateAction<number>>
-  setEstBounty: Dispatch<SetStateAction<number>>
-  setToken0s: Dispatch<SetStateAction<any[]>>
-  setToken1s: Dispatch<SetStateAction<any[]>>
-}>> = ({ burnLPData, index, setSelectedUsd, setEstBurnDex, setEstBounty, setToken0s, setToken1s, dexPrice }) => {
+const DataRow: React.FC<
+  React.PropsWithChildren<{
+    burnLPData: BurnLpData
+    index: number
+    dexPrice: string
+    setSelectedUsd: Dispatch<SetStateAction<number>>
+    setEstBurnDex: Dispatch<SetStateAction<number>>
+    setEstBounty: Dispatch<SetStateAction<number>>
+    setToken0s: Dispatch<SetStateAction<any[]>>
+    setToken1s: Dispatch<SetStateAction<any[]>>
+  }>
+> = ({ burnLPData, index, setSelectedUsd, setEstBurnDex, setEstBounty, setToken0s, setToken1s, dexPrice }) => {
   const { isXs, isSm } = useMatchBreakpoints()
   const [checked, setChecked] = useState(false)
   useEffect(() => {
@@ -88,10 +100,10 @@ const DataRow: React.FC<React.PropsWithChildren<{
       selectedUsd += burnLPData.liquidityUSD
       setSelectedUsd(selectedUsd)
 
-      estBurnDex += (burnLPData.liquidityUSD / parseFloat(dexPrice))
+      estBurnDex += burnLPData.liquidityUSD / parseFloat(dexPrice)
       setEstBurnDex(estBurnDex)
 
-      estBounty += (burnLPData.liquidityUSD / parseFloat(dexPrice)) / 1000
+      estBounty += burnLPData.liquidityUSD / parseFloat(dexPrice) / 1000
       setEstBounty(estBounty)
 
       token0s.push(burnLPData.token0)
@@ -104,10 +116,10 @@ const DataRow: React.FC<React.PropsWithChildren<{
         selectedUsd -= burnLPData.liquidityUSD
         setSelectedUsd(selectedUsd < 0 ? 0 : selectedUsd)
 
-        estBurnDex -= (burnLPData.liquidityUSD / parseFloat(dexPrice))
+        estBurnDex -= burnLPData.liquidityUSD / parseFloat(dexPrice)
         setEstBurnDex(estBurnDex < 0 ? 0 : estBurnDex)
 
-        estBounty -= (burnLPData.liquidityUSD / parseFloat(dexPrice)) / 1000
+        estBounty -= burnLPData.liquidityUSD / parseFloat(dexPrice) / 1000
         setEstBounty(estBounty < 0 ? 0 : estBounty)
 
         token0s = token0s.filter((token0) => token0 != burnLPData.token0)
@@ -126,7 +138,12 @@ const DataRow: React.FC<React.PropsWithChildren<{
 
   return (
     <ResponsiveGrid>
-      <Flex width={24} onClick={() => { setChecked(!checked) }}>
+      <Flex
+        width={24}
+        onClick={() => {
+          setChecked(!checked)
+        }}
+      >
         <Radio scale="sm" onChange={() => null} checked={checked} />
       </Flex>
       <Flex alignItems="center">
@@ -139,9 +156,7 @@ const DataRow: React.FC<React.PropsWithChildren<{
         )}
       </Flex>
       <Text fontWeight={400}>${formatAmount(burnLPData.liquidityUSD, { notation: 'standard' })}</Text>
-      <Text fontWeight={400}>
-        {formatAmount(burnLPData.liquidityToken0)}
-      </Text>
+      <Text fontWeight={400}>{formatAmount(burnLPData.liquidityToken0)}</Text>
       <Text fontWeight={400}>{formatAmount(burnLPData.liquidityToken1)}</Text>
       <Text fontWeight={400}>{formatAmount(getBalanceNumber(new BigNumber(burnLPData.liquidityAmount)))}</Text>
     </ResponsiveGrid>
@@ -169,7 +184,16 @@ const BurnTable: React.FC<
     dexPrice: string
     maxItems?: number
   }>
-> = ({ burnLPDatas, maxItems = MAX_ITEMS, setSelectedUsd, setEstBurnDex, setEstBounty, setToken0s, setToken1s, dexPrice }) => {
+> = ({
+  burnLPDatas,
+  maxItems = MAX_ITEMS,
+  setSelectedUsd,
+  setEstBurnDex,
+  setEstBounty,
+  setToken0s,
+  setToken1s,
+  dexPrice,
+}) => {
   const [sortField, setSortField] = useState(SORT_FIELD.liquidityUSD)
   const [sortDirection, setSortDirection] = useState<boolean>(true)
 
@@ -190,10 +214,10 @@ const BurnTable: React.FC<
   const sortedTokens = useMemo(() => {
     return burnLPDatas
       ? orderBy(
-        burnLPDatas,
-        (burnLPData) => burnLPData[sortField as keyof BurnLpData],
-        sortDirection ? 'desc' : 'asc',
-      ).slice(maxItems * (page - 1), page * maxItems)
+          burnLPDatas,
+          (burnLPData) => burnLPData[sortField as keyof BurnLpData],
+          sortDirection ? 'desc' : 'asc',
+        ).slice(maxItems * (page - 1), page * maxItems)
       : []
   }, [burnLPDatas, maxItems, page, sortDirection, sortField])
 
@@ -220,9 +244,7 @@ const BurnTable: React.FC<
   return (
     <TableWrapper>
       <ResponsiveGrid>
-        <Text color="secondary" fontSize="16px" bold>
-
-        </Text>
+        <Text color="secondary" fontSize="16px" bold></Text>
         <ClickableColumnHeader
           color="secondary"
           fontSize="16px"
@@ -277,7 +299,16 @@ const BurnTable: React.FC<
             if (data) {
               return (
                 <Fragment key={data.address}>
-                  <DataRow index={(page - 1) * MAX_ITEMS + i} burnLPData={data} setEstBounty={setEstBounty} setSelectedUsd={setSelectedUsd} setEstBurnDex={setEstBurnDex} setToken0s={setToken0s} setToken1s={setToken1s} dexPrice={dexPrice} />
+                  <DataRow
+                    index={(page - 1) * MAX_ITEMS + i}
+                    burnLPData={data}
+                    setEstBounty={setEstBounty}
+                    setSelectedUsd={setSelectedUsd}
+                    setEstBurnDex={setEstBurnDex}
+                    setToken0s={setToken0s}
+                    setToken1s={setToken1s}
+                    dexPrice={dexPrice}
+                  />
                   <Break />
                 </Fragment>
               )

@@ -1,2 +1,2 @@
-export * from "./Display7";
-export * from "./Digit7";
+export * from './Display7'
+export * from './Digit7'

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { CSSProperties } from 'react';
+import { CSSProperties } from 'react'
 import styled from 'styled-components'
 import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@pancakeswap/uikit'
 import Link from 'next/link'
@@ -20,16 +20,17 @@ const gradientOverlayStyle: CSSProperties = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundImage: 'radial-gradient(50% 500px at 50% -6%, rgba(0, 41, 102, 0.7) 0%, rgb(7, 24, 50) 50%, rgb(6, 22, 45) 100%), radial-gradient(circle at -70% 50%, rgba(0, 43, 102, 0.7) 0px, transparent 50%)',
+  backgroundImage:
+    'radial-gradient(50% 500px at 50% -6%, rgba(0, 41, 102, 0.7) 0%, rgb(7, 24, 50) 50%, rgb(6, 22, 45) 100%), radial-gradient(circle at -70% 50%, rgba(0, 43, 102, 0.7) 0px, transparent 50%)',
   opacity: 1,
   zIndex: -1,
-};
+}
 
 const backgroundLogo: CSSProperties = {
   position: 'relative',
   background: `url('/images/home/lunar-bunny/background_logo.png') right bottom no-repeat`,
   backgroundSize: 'auto',
-};
+}
 
 const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};

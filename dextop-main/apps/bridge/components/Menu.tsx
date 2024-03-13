@@ -83,7 +83,7 @@ export function Menu() {
               <StyledMenuItem $isActive>Bridge</StyledMenuItem>
             </NextLink>
           </Box>
-          <StyledMenuItem href="https://dex.dexop.pro/swap">Swap</StyledMenuItem>
+          <StyledMenuItem href="https://dexop.pro/swap">Swap</StyledMenuItem>
         </Flex>
       </Flex>
       <Flex alignItems="center">

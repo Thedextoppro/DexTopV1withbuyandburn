@@ -109,7 +109,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                   <td key={key}>
                     <CellInner style={{ width: '100px' }}>
                       <CellLayout label={t('Deposit Fee')}>
-                       <Fees fees = {props.depositFeeBP} />
+                        <Fees fees={props.depositFeeBP} />
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -119,15 +119,13 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                   <td key={key}>
                     <CellInner style={{ width: '100px' }}>
                       <CellLayout label={t('Withdraw Fee')}>
-                        <Fees fees = {props.withdrawFeeBP} />
+                        <Fees fees={props.withdrawFeeBP} />
                       </CellLayout>
                     </CellInner>
                   </td>
                 )
               case 'type':
-                return (
-                 <></>
-                )
+                return <></>
               case 'details':
                 return (
                   <td key={key}>

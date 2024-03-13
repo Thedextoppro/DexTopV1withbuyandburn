@@ -8,7 +8,7 @@ export const variants = {
   PENDING: "pending",
 } as const;
 
-export type Variant = typeof variants[keyof typeof variants];
+export type Variant = (typeof variants)[keyof typeof variants];
 
 export interface UserMenuProps extends Omit<FlexProps, "children"> {
   account?: string;

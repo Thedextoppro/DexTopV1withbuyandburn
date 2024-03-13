@@ -27,8 +27,7 @@ const ifos: Ifo[] = [
     token: bscTokens.co,
     releaseBlockNumber: 21615380,
     campaignId: '511600000',
-    articleUrl:
-      'https://dextop.pro/voting/proposal/bafkreiddual5o7vzfcwuazw3lgckis66hka4xytqkttqg2wjtea5pywohy',
+    articleUrl: 'https://dextop.pro/voting/proposal/bafkreiddual5o7vzfcwuazw3lgckis66hka4xytqkttqg2wjtea5pywohy',
     tokenOfferingPrice: 0.035,
     version: 3.2,
     twitterUrl: 'https://twitter.com/Coritecom',
@@ -58,8 +57,7 @@ const ifos: Ifo[] = [
     token: bscTokens.hoop,
     releaseBlockNumber: 21525900,
     campaignId: '511500000',
-    articleUrl:
-      'https://dextop.pro/voting/proposal/bafkreicsc2nevwvyp7ot5ewkmujvor3bcafh372kuxzncojqbuabnpwupe',
+    articleUrl: 'https://dextop.pro/voting/proposal/bafkreicsc2nevwvyp7ot5ewkmujvor3bcafh372kuxzncojqbuabnpwupe',
     tokenOfferingPrice: 0.055,
     version: 3.2,
     twitterUrl: 'https://twitter.com/DinosChibi',
@@ -87,8 +85,7 @@ const ifos: Ifo[] = [
     token: bscTokens.wom,
     releaseBlockNumber: 20685666,
     campaignId: '511400000',
-    articleUrl:
-      'https://dextop.pro/voting/proposal/bafkreieqv7mbzmumyftstt6l32x6okfzq4syrea7k5zbqgohhcekcvbduu',
+    articleUrl: 'https://dextop.pro/voting/proposal/bafkreieqv7mbzmumyftstt6l32x6okfzq4syrea7k5zbqgohhcekcvbduu',
     tokenOfferingPrice: 0.075,
     version: 3.2,
     twitterUrl: 'https://twitter.com/WombatExchange',
@@ -116,8 +113,7 @@ const ifos: Ifo[] = [
     token: bscTokens.peel,
     releaseBlockNumber: 19964276,
     campaignId: '511300000',
-    articleUrl:
-      'https://dextop.pro/voting/proposal/bafkreibomj5nilvyckdro7ztmm62syt55dcfnonxs63ji6hm2ijq35lru4',
+    articleUrl: 'https://dextop.pro/voting/proposal/bafkreibomj5nilvyckdro7ztmm62syt55dcfnonxs63ji6hm2ijq35lru4',
     tokenOfferingPrice: 0.04,
     version: 3.2,
     twitterUrl: 'https://twitter.com/MetaApesGame',
@@ -146,8 +142,7 @@ const ifos: Ifo[] = [
     token: bscTokens.trivia,
     releaseBlockNumber: 19273145,
     campaignId: '511200000',
-    articleUrl:
-      'https://dextop.pro/voting/proposal/bafkreihrc2d55vrowbn2oajzs77ffv73g4hzch2e7wulnuccmbwl5u4hvq',
+    articleUrl: 'https://dextop.pro/voting/proposal/bafkreihrc2d55vrowbn2oajzs77ffv73g4hzch2e7wulnuccmbwl5u4hvq',
     tokenOfferingPrice: 0.035,
     version: 3.2,
     telegramUrl: 'https://t.me/TriviansGlobal',

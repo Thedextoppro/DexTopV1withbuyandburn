@@ -251,9 +251,8 @@ function MinimalPositionCardView({
       ) : (
         <LightCard>
           <Text fontSize="14px" style={{ textAlign: 'center' }}>
-            
             {t(
-              "Adding liquidity helps burn DEX. 0.0575% of the swap fees go the BuyAndBurn contract which pays a 0.1% bounty for those that run it.",
+              'Adding liquidity helps burn DEX. 0.0575% of the swap fees go the BuyAndBurn contract which pays a 0.1% bounty for those that run it.',
             )}
           </Text>
         </LightCard>

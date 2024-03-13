@@ -39,12 +39,12 @@ const config = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: true,
   },
   experimental: {
     scrollRestoration: true,
     images: {
-      unoptimized: true
+      unoptimized: true,
     },
   },
   trailingSlash: true,
@@ -156,15 +156,15 @@ const config = {
       new webpack.DefinePlugin({
         __SENTRY_DEBUG__: false,
         __SENTRY_TRACING__: false,
-      })
-    );
+      }),
+    )
 
     // if (!isServer) {
     //   webpackConfig.optimization.usedExports = true;
     //   webpackConfig.optimization.ignorePatterns = [/^_/u];
     // }
 
-    return webpackConfig;
+    return webpackConfig
   },
 }
 
@@ -172,4 +172,3 @@ module.exports = withBundleAnalyzer(
   withVanillaExtract(withSentryConfig(withTM(withAxiom(config)), sentryWebpackPluginOptions)),
 )
 // module.exports = withBundleAnalyzer(withSentryConfig(withTM(config), sentryWebpackPluginOptions))
-

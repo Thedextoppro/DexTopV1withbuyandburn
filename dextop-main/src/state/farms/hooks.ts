@@ -83,7 +83,7 @@ const coreFarmPIDs = {
   56: [2, 3],
   97: [4, 10],
   5: [1, 2],
-  369: [0, 4]
+  369: [0, 4],
 }
 
 export const usePollCoreFarmData = () => {
@@ -147,14 +147,14 @@ export const usePriceCakeBusd = (): BigNumber => {
 }
 
 export const useTotalValue = (): BigNumber => {
-  const farms = useFarms();
-  let value = new BigNumber(0);
+  const farms = useFarms()
+  let value = new BigNumber(0)
   for (let i = 0; i < farms.data.length; i++) {
     const farm = farms.data[i]
     if (farm.lpTotalInQuoteToken && String(farm.lpTotalInQuoteToken) !== '0') {
-        const val = (new BigNumber(farm.lpTotalInQuoteToken)).times(farm.quoteTokenPriceBusd);
-        value = value.plus(val);
+      const val = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
+      value = value.plus(val)
     }
   }
-  return value;
+  return value
 }

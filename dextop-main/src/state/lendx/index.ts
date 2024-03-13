@@ -9,7 +9,7 @@ const initialState = {
   data: {
     minXfnAmount: '0',
     totalInvestors: '0',
-    totalRaised: '0'
+    totalRaised: '0',
   },
   userData: {
     isAllowance: '0',
@@ -25,7 +25,7 @@ export const fetchLendXData = createAsyncThunk('farms/fetchLendXData', async (ch
   return {
     minXfnAmount: new BigNumber(farms[0]).toJSON(),
     totalInvestors: new BigNumber(farms[1]).toJSON(),
-    totalRaised: new BigNumber(farms[2]).toJSON()
+    totalRaised: new BigNumber(farms[2]).toJSON(),
   }
 })
 
@@ -37,7 +37,7 @@ export const fetchLendXUserDataAsync = createAsyncThunk<any, { account: string }
       isAvailable: userInfo[0][0],
       totalInvested: new BigNumber(userInfo[1].totalInvested._hex).toJSON(),
       totalClaimed: new BigNumber(userInfo[1].totalClaimed._hex).toJSON(),
-      isAllowance: new BigNumber(userInfo[2]).toJSON()
+      isAllowance: new BigNumber(userInfo[2]).toJSON(),
     }
   },
 )

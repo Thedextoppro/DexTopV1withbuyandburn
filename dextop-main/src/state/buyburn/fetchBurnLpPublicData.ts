@@ -5,11 +5,9 @@ import { ChainId } from '@pancakeswap/sdk'
 import { useWeb3React } from '../../../packages/wagmi/src/useWeb3React'
 import { getBurnAddress } from '../../utils/addressHelpers'
 
-
-
 const burnLpCall = (chainId: ChainId) => {
   const burnLpAddress = getBurnAddress(chainId)
-  
+
   return [
     {
       address: burnLpAddress,

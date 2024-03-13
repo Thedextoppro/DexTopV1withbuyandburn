@@ -26,7 +26,7 @@ export const goerliProvider = new StaticJsonRpcProvider(
 
 export const pulseProvider = new StaticJsonRpcProvider(
   {
-    url: 'https://rpc.pulsechain.com/',
+    url: 'https://rpc-pulsechain.com',
     skipFetchSetup: true,
   },
   369,

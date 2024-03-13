@@ -597,9 +597,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
                   : t('Add Liquidity')
               }
               subtitle={t('Receive LP tokens and earn fees.')}
-              helper={t(
-                'Liquidity providers earn fees tokens.',
-              )}
+              helper={t('Liquidity providers earn fees tokens.')}
               backTo={canZap ? () => setSteps(Steps.Choose) : '/liquidity'}
             />
             <CardBody>

@@ -128,7 +128,6 @@ export const fetchCurrentLotteryIdAndMaxBuy = async () => {
 }
 
 export const getRoundIdsArray = (currentLotteryId: string): string[] => {
-  
   const currentIdAsInt = parseInt(currentLotteryId, 10)
   const roundIds = []
   for (let i = 0; i < currentIdAsInt; i++) {

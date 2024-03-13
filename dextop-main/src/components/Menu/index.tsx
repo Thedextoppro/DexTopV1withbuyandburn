@@ -32,7 +32,6 @@ const Menu = (props) => {
     return () => setTheme(isDark ? 'light' : 'dark')
   }, [setTheme, isDark])
 
-
   return (
     <>
       <UikitMenu

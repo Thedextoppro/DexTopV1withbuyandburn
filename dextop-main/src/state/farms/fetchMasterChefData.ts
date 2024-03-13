@@ -54,12 +54,12 @@ export const fetchMasterChefData = async (farms: SerializedFarmConfig[], chainId
   const masterChefCalls = await Promise.all(farms.map((farm) => masterChefFarmCalls(farm)))
   const chunkSize = masterChefCalls.flat().length / farms.length
   const masterChefAggregatedCalls = masterChefCalls
-  .filter((masterChefCall) => masterChefCall[0] !== null && masterChefCall[1] !== null)
-  .flat()
-  
+    .filter((masterChefCall) => masterChefCall[0] !== null && masterChefCall[1] !== null)
+    .flat()
+
   const masterChefMultiCallResult = await multicallv2({
     abi: masterchefABI,
-    calls: masterChefAggregatedCalls
+    calls: masterChefAggregatedCalls,
   })
   const masterChefChunkedResultRaw = chunk(masterChefMultiCallResult, chunkSize)
 

@@ -89,15 +89,16 @@ export function useApproveCallback(
       useExact = true
       return tokenContract.estimateGas.approve(spender, amountToApprove.quotient.toString())
     })
-    return tokenContract.approve(spender, useExact ? amountToApprove.quotient.toString() : MaxUint256)
-.then((response: TransactionResponse) => {
-addTransaction(response, {
-summary: `Approve ${amountToApprove.currency.symbol}`,
-translatableSummary: { text: 'Approve %symbol%', data: { symbol: amountToApprove.currency.symbol } },
-approval: { tokenAddress: token.address, spender },
-type: 'approve',
-})
-})
+    return tokenContract
+      .approve(spender, useExact ? amountToApprove.quotient.toString() : MaxUint256)
+      .then((response: TransactionResponse) => {
+        addTransaction(response, {
+          summary: `Approve ${amountToApprove.currency.symbol}`,
+          translatableSummary: { text: 'Approve %symbol%', data: { symbol: amountToApprove.currency.symbol } },
+          approval: { tokenAddress: token.address, spender },
+          type: 'approve',
+        })
+      })
       .catch((error: any) => {
         logError(error)
         console.error('Failed to approve token', error)
@@ -124,4 +125,3 @@ export function useApproveCallbackFromTrade(
 
   return useApproveCallback(amountToApprove, ROUTER_ADDRESS[chainId])
 }
-

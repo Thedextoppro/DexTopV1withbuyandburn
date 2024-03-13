@@ -66,11 +66,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Cheaper and faster than Uniswap? Discover DexTop Finance, the leading DEX on PULSE Chain."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://photos.pinksale.finance/file/pinksale-logo-upload/1696097847754-d3b0990ef77de158e47ba54a2501a141.jpeg" />
         <meta
-          name="twitter:description"
-          content="The most popular AMM on PULSE!"
+          name="twitter:image"
+          content="https://photos.pinksale.finance/file/pinksale-logo-upload/1696097847754-d3b0990ef77de158e47ba54a2501a141.jpeg"
         />
+        <meta name="twitter:description" content="The most popular AMM on PULSE!" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DexTop Finance - A next evolution DeFi exchange on PULSE Chain" />
         <title>DexTop Finance</title>

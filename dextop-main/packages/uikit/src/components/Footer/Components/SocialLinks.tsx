@@ -6,7 +6,6 @@ import Link from "../../Link/Link";
 import { socials } from "../config";
 import styled from "styled-components";
 
-
 const FooterSocial = styled(Link)`
   ${({ theme }) => theme.mediaQueries.sm} {
     align-self: center;
@@ -14,7 +13,7 @@ const FooterSocial = styled(Link)`
   ${({ theme }) => theme.mediaQueries.lg} {
     // align-self: center;
   }
-`
+`;
 const SocialLinks: React.FC<React.PropsWithChildren<FlexProps>> = ({ ...props }) => (
   <Flex {...props} data-theme="dark">
     {socials.map((social, index) => {
@@ -39,7 +38,7 @@ const SocialLinks: React.FC<React.PropsWithChildren<FlexProps>> = ({ ...props })
       return (
         <>
           <FooterSocial external key={social.label} href={social.href} aria-label={social.label} mr={mr}>
-            <Icon {...iconProps}/>
+            <Icon {...iconProps} />
           </FooterSocial>
         </>
       );

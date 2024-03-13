@@ -16,7 +16,6 @@ const getNodeRealUrl = (networkName: string) => {
 
   switch (networkName) {
     case 'homestead':
-      
       if (process.env.NEXT_PUBLIC_NODE_REAL_API_ETH) {
         host = `eth-mainnet.nodereal.io/v1/${process.env.NEXT_PUBLIC_NODE_REAL_API_ETH}`
       }

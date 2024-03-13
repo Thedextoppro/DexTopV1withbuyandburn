@@ -133,18 +133,17 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   const [onPresentDeposit] = useModal(
-    
     <ZapModal
-       token0Decimals={farm.token.decimals}
-       token1Decimals={farm.quoteToken.decimals}
-       token0Name = {farm.token.symbol}
-       token1Name = {farm.quoteToken.symbol}
-       token0Address = {farm.token.address}
-       token1Address = {farm.quoteToken.address}
-       lpAddress = {farm.lpAddress}
-       lpTokenName = {lpLabel}
-       addLiquidityUrl = {addLiquidityUrl}
-       pid={farm.pid}
+      token0Decimals={farm.token.decimals}
+      token1Decimals={farm.quoteToken.decimals}
+      token0Name={farm.token.symbol}
+      token1Name={farm.quoteToken.symbol}
+      token0Address={farm.token.address}
+      token1Address={farm.quoteToken.address}
+      lpAddress={farm.lpAddress}
+      lpTokenName={lpLabel}
+      addLiquidityUrl={addLiquidityUrl}
+      pid={farm.pid}
     />,
   )
 
@@ -198,12 +197,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
         )}
         <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
         {isActive && (
-          <Button
-            width="100%"
-            marginTop="8px"       
-            onClick={onPresentDeposit} 
-            disabled={!account}
-          >
+          <Button width="100%" marginTop="8px" onClick={onPresentDeposit} disabled={!account}>
             Zap in
           </Button>
         )}

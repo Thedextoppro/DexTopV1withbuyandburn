@@ -5,11 +5,9 @@ import { ChainId } from '@pancakeswap/sdk'
 import { useWeb3React } from '../../../packages/wagmi/src/useWeb3React'
 import { getLendXAddress } from '../../utils/addressHelpers'
 
-
-
 const lendXCall = (chainId: ChainId) => {
   const lendXAddress = getLendXAddress(chainId)
-  
+
   return [
     {
       address: lendXAddress,
@@ -22,7 +20,7 @@ const lendXCall = (chainId: ChainId) => {
     {
       address: lendXAddress,
       name: 'totalRaised',
-    }    
+    },
   ]
 }
 

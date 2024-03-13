@@ -43,9 +43,7 @@ export function ChoosePair({
       <AppHeader
         title={t('Add Liquidity')}
         subtitle={t('Receive LP tokens and earn fees')}
-        helper={t(
-          'Liquidity providers earn fees',
-        )}
+        helper={t('Liquidity providers earn fees')}
         backTo="/liquidity"
       />
       <CardBody>

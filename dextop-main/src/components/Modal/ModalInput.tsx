@@ -17,18 +17,18 @@ interface ModalInputProps {
 }
 
 const RoiInputContainer = styled(Box)`
-position: relative;
-& > input {
-  padding-left: 28px;
-  max-width: 70%;
-}
-&:before {
-  position: absolute;
-  content: '$';
-  color: ${({ theme }) => theme.colors.textSubtle};
-  left: 26px;
-  top: 12px;
-}
+  position: relative;
+  & > input {
+    padding-left: 28px;
+    max-width: 70%;
+  }
+  &:before {
+    position: absolute;
+    content: '$';
+    color: ${({ theme }) => theme.colors.textSubtle};
+    left: 26px;
+    top: 12px;
+  }
 `
 
 const StyledTokenInput = styled.div<InputProps>`
@@ -96,15 +96,15 @@ const ModalInput: React.FC<React.PropsWithChildren<ModalInputProps>> = ({
           <Text fontSize="14px">{t('Balance: %balance%', { balance: displayBalance(max) })}</Text>
         </Flex>
         <Flex alignItems="flex-end" justifyContent="space-around">
-            <StyledInput
-              pattern={`^[0-9]*[.,]?[0-9]{0,${decimals}}$`}
-              inputMode="decimal"
-              step="any"
-              min="0"
-              onChange={onChange}
-              placeholder="0"
-              value={value}
-            />
+          <StyledInput
+            pattern={`^[0-9]*[.,]?[0-9]{0,${decimals}}$`}
+            inputMode="decimal"
+            step="any"
+            min="0"
+            onChange={onChange}
+            placeholder="0"
+            value={value}
+          />
           <Button scale="sm" onClick={onSelectMax} mr="8px">
             {t('Max')}
           </Button>
@@ -153,7 +153,7 @@ export const ZapModalInput: React.FC<React.PropsWithChildren<ModalInputProps>> =
           <Text fontSize="14px">{t('Balance: %balance%', { balance: displayBalance(max) })}</Text>
         </Flex>
         <Flex alignItems="flex-end" justifyContent="space-around">
-        <RoiInputContainer>
+          <RoiInputContainer>
             <StyledInput
               pattern={`^[0-9]*[.,]?[0-9]{0,${decimals}}$`}
               inputMode="decimal"
@@ -163,7 +163,7 @@ export const ZapModalInput: React.FC<React.PropsWithChildren<ModalInputProps>> =
               placeholder="0"
               value={value}
             />
-        </RoiInputContainer>
+          </RoiInputContainer>
           <Button scale="sm" onClick={onSelectMax} mr="8px">
             {t('Max')}
           </Button>

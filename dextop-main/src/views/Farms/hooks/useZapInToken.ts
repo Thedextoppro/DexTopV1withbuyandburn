@@ -6,13 +6,7 @@ const useZapInToken = () => {
   const zapContract = useZapContract()
 
   const handleZap = useCallback(
-    async (
-      from: string, 
-      amount: string,
-      to: string,
-      routerAddr: string,
-      recipient: string
-      ) => {
+    async (from: string, amount: string, to: string, routerAddr: string, recipient: string) => {
       return zapTokenIn(zapContract, from, amount, to, routerAddr, recipient)
     },
     [zapContract],

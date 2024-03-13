@@ -1,14 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import BigNumber from 'bignumber.js'
 import { useCallback, useEffect, useState } from 'react'
-import {
-  Button,
-  Modal,
-  AutoRenewIcon,
-  Heading,
-  Text,
-  Box
-} from '@pancakeswap/uikit'
+import { Button, Modal, AutoRenewIcon, Heading, Text, Box } from '@pancakeswap/uikit'
 import { ModalActions, ModalInput } from 'components/Modal'
 import { useTranslation } from 'contexts/Localization'
 import { getFullDisplayBalance, formatNumber } from 'utils/formatBalance'
@@ -51,14 +44,14 @@ const RoiInputContainer = styled(Box)`
 interface ZapModalProps {
   token0Decimals?: number
   token1Decimals?: number
-  token0Name?: string;
-  token1Name?: string;
-  token0Address?: string,
-  token1Address?: string,
-  lpAddress?: string,
-  lpTokenName?: string,
-  addLiquidityUrl: string,
-  pid: number,
+  token0Name?: string
+  token1Name?: string
+  token0Address?: string
+  token1Address?: string
+  lpAddress?: string
+  lpTokenName?: string
+  addLiquidityUrl: string
+  pid: number
   onDismiss?: () => void
 }
 
@@ -73,7 +66,7 @@ const ZapModal: React.FC<ZapModalProps> = ({
   lpTokenName = 'DEX-WPLS',
   addLiquidityUrl,
   pid,
-  onDismiss
+  onDismiss,
 }) => {
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
@@ -85,21 +78,21 @@ const ZapModal: React.FC<ZapModalProps> = ({
   const { balance: token1Balance, fetchStatus: token1BalanceStatus } = useTokenBalance(token1Address)
   const { fetchWithCatchTxError, loading: _pendingTx } = useCatchTxError()
   const [allowances, setAllowances] = useState(['0', '0'])
-  const [val, setVal] = useState('');
+  const [val, setVal] = useState('')
   const lpTokensToStake = new BigNumber(val)
-  const [zappingToken, setZappingToken] = useState(token0Name);
-  const [estimate, setEstimate] = useState({ token0: '0', token1: '0' });
-  const [zappingTokenBalance, setZappingTokenBalance] = useState(token0Balance);
+  const [zappingToken, setZappingToken] = useState(token0Name)
+  const [estimate, setEstimate] = useState({ token0: '0', token1: '0' })
+  const [zappingTokenBalance, setZappingTokenBalance] = useState(token0Balance)
   const [zappingTokenDecimals, setZappingTokenDecimals] = useState(18)
 
   // eslint-disable-next-line consistent-return
   const getTokenAddress = (_tokenName) => {
-    if(_tokenName === token0Name) {
-      if(token0Name === "DAI")
-       { return token1Address}
+    if (_tokenName === token0Name) {
+      if (token0Name === 'DAI') {
+        return token1Address
+      }
 
       return token0Address
-      
     }
   }
   const getAllowance = useCallback(async () => {
@@ -118,73 +111,79 @@ const ZapModal: React.FC<ZapModalProps> = ({
   useEffect(() => {
     setZappingTokenBalance(token0Balance)
     setZappingTokenDecimals(token0Decimals)
-    setZappingToken(token0Name);
+    setZappingToken(token0Name)
     getAllowance()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token0BalanceStatus])
 
   function isNumeric(n: any) {
     // eslint-disable-next-line no-restricted-globals
-    return !isNaN(parseFloat(n)) && isFinite(n);
+    return !isNaN(parseFloat(n)) && isFinite(n)
   }
   const handleChangeAsset = async (event: any) => {
-    const { value } = event;
-    const _tokenBalance = value === token0Name ? token0Balance : token1Balance;
+    const { value } = event
+    const _tokenBalance = value === token0Name ? token0Balance : token1Balance
     const _tokenDecimals = value === token0Name ? token0Decimals : token1Decimals
-    setZappingToken(value);
-    setZappingTokenBalance(_tokenBalance);
+    setZappingToken(value)
+    setZappingTokenBalance(_tokenBalance)
     setZappingTokenDecimals(_tokenDecimals)
 
     const estimateZap = await zapContract?.estimateZapInToken(
       value === token0Name ? token0Address : token1Address,
       lpAddress,
       ROUTER_ADDRESS[ChainId.PULSE_CHAIN],
-      parseUnits(val, _tokenDecimals)
-    );
-    if(pid === 3 || pid === 7) {
-      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() });
-    } else 
-    setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() });
-  };
+      parseUnits(val, _tokenDecimals),
+    )
+    if (pid === 3 || pid === 7) {
+      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() })
+    } else setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() })
+  }
 
   const handleChange = async (e: any) => {
     if (e.target.value === '' || e.target.value === '0' || e.target.value === 0) {
-      setVal(e.target.value);
-      setEstimate({ token0: '0', token1: '0' });
-      return;
+      setVal(e.target.value)
+      setEstimate({ token0: '0', token1: '0' })
+      return
     }
-    if (!isNumeric(e.target.value)) return;
-    setVal(e.target.value);
+    if (!isNumeric(e.target.value)) return
+    setVal(e.target.value)
     const estimateZap = await zapContract?.estimateZapInToken(
       zappingToken === token0Name ? token0Address : token1Address,
       lpAddress,
       ROUTER_ADDRESS[ChainId.PULSE_CHAIN],
-      parseUnits(e.target.value, zappingTokenDecimals)
-    );
-    if(pid === 3 || pid === 7) {
-      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() });
-    } else 
-    setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() });
-  };
+      parseUnits(e.target.value, zappingTokenDecimals),
+    )
+    if (pid === 3 || pid === 7) {
+      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() })
+    } else setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() })
+  }
 
   const handleSelectMax = async () => {
-    setVal(String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals)));
+    setVal(String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals)))
     const estimateZap = await zapContract?.estimateZapInToken(
       zappingToken === token0Name ? token0Address : token1Address,
       lpAddress,
       ROUTER_ADDRESS[ChainId.PULSE_CHAIN],
-      parseUnits(String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals, 3)), zappingToken === token0Name ? token0Decimals : token1Decimals)
-    );
+      parseUnits(
+        String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals, 3)),
+        zappingToken === token0Name ? token0Decimals : token1Decimals,
+      ),
+    )
 
-    if(pid === 3 || pid === 7) {
-      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() });
-    } else 
-    setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() });
-  };
+    if (pid === 3 || pid === 7) {
+      setEstimate({ token0: estimateZap[1].toString(), token1: estimateZap[0].toString() })
+    } else setEstimate({ token0: estimateZap[0].toString(), token1: estimateZap[1].toString() })
+  }
 
   const handleZap = async () => {
     const receipt = await fetchWithCatchTxError(() => {
-      return onZap(zappingToken === token0Name ? token0Address : token1Address, parseUnits(val, zappingTokenDecimals).toString(), lpAddress, ROUTER_ADDRESS[ChainId.PULSE_CHAIN], account)
+      return onZap(
+        zappingToken === token0Name ? token0Address : token1Address,
+        parseUnits(val, zappingTokenDecimals).toString(),
+        lpAddress,
+        ROUTER_ADDRESS[ChainId.PULSE_CHAIN],
+        account,
+      )
     })
     if (receipt?.status) {
       toastSuccess(
@@ -195,7 +194,6 @@ const ZapModal: React.FC<ZapModalProps> = ({
       )
     }
   }
-
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   const token0Contract = useERC20(token0Address)
@@ -212,11 +210,10 @@ const ZapModal: React.FC<ZapModalProps> = ({
     }
   }, [fetchWithCatchTxError, onApprove, getAllowance, toastSuccess, t])
 
-
   return (
     <Modal title={`Zap in ${lpTokenName}`} onDismiss={onDismiss}>
       <Select
-        style={{ marginBottom: "10px" }}
+        style={{ marginBottom: '10px' }}
         options={[
           {
             label: token0Name,
@@ -226,17 +223,19 @@ const ZapModal: React.FC<ZapModalProps> = ({
             label: token1Name,
             value: token1Name,
           },
-
         ]}
         onOptionChange={handleChangeAsset}
       />
       <RoiInputContainer>
-
         <ZapModalInput
           value={val}
           onSelectMax={handleSelectMax}
           onChange={handleChange}
-          max={token0BalanceStatus === FetchStatus.Fetched ? String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals, 3)) : '0'}
+          max={
+            token0BalanceStatus === FetchStatus.Fetched
+              ? String(getFullDisplayBalance(zappingTokenBalance, zappingTokenDecimals, 3))
+              : '0'
+          }
           symbol={zappingToken}
           addLiquidityUrl={addLiquidityUrl}
           inputTitle={t('Zap in')}
@@ -244,51 +243,64 @@ const ZapModal: React.FC<ZapModalProps> = ({
         />
       </RoiInputContainer>
 
-      <Heading mt="24px" scale='sm'>
+      <Heading mt="24px" scale="sm">
         Zap Estimate:
       </Heading>
-      <Text color='textSubtle'>
-        {`(${getFullDisplayBalance(new BigNumber(estimate.token0), token0Decimals, 3)} ${token0Name} / ${getFullDisplayBalance(new BigNumber(estimate.token1), token1Decimals, 3)} ${token1Name})`} </Text>
+      <Text color="textSubtle">
+        {`(${getFullDisplayBalance(
+          new BigNumber(estimate.token0),
+          token0Decimals,
+          3,
+        )} ${token0Name} / ${getFullDisplayBalance(
+          new BigNumber(estimate.token1),
+          token1Decimals,
+          3,
+        )} ${token1Name})`}{' '}
+      </Text>
       <ModalActions>
         <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx}>
           {t('Cancel')}
         </Button>
-        {
-          ((zappingToken === token0Name && Number(allowances[0]) === 0) || (zappingToken === token1Name && Number(allowances[1]) === 0)) ?
-            pendingTx ? (
-              <Button width="100%" isLoading={pendingTx} endIcon={<AutoRenewIcon spin color="currentColor" />}>
-                {t('Approving')}
-              </Button>
-            ) : (
-              <Button
-                width="100%"
-                onClick={async () => {
-                  setPendingTx(true)
-                  await handleApprove()
-                  setPendingTx(false)
-                }}
-              >
-                {t('Approve')}
-              </Button>
-            )
-            : pendingTx ? (
-              <Button width="100%" isLoading={pendingTx} endIcon={<AutoRenewIcon spin color="currentColor" />}>
-                {t('Confirming')}
-              </Button>
-            ) : (
-              <Button
-                width="100%"
-                disabled={!lpTokensToStake.isFinite() || lpTokensToStake.eq(0) || lpTokensToStake.gt(new BigNumber(String(getFullDisplayBalance(zappingTokenBalance, 9))))}
-                onClick={async () => {
-                  setPendingTx(true)
-                  await handleZap()
-                  onDismiss?.()
-                  setPendingTx(false)
-                }}
-              >
-                {t('Confirm')}
-              </Button>
-            )}
+        {(zappingToken === token0Name && Number(allowances[0]) === 0) ||
+        (zappingToken === token1Name && Number(allowances[1]) === 0) ? (
+          pendingTx ? (
+            <Button width="100%" isLoading={pendingTx} endIcon={<AutoRenewIcon spin color="currentColor" />}>
+              {t('Approving')}
+            </Button>
+          ) : (
+            <Button
+              width="100%"
+              onClick={async () => {
+                setPendingTx(true)
+                await handleApprove()
+                setPendingTx(false)
+              }}
+            >
+              {t('Approve')}
+            </Button>
+          )
+        ) : pendingTx ? (
+          <Button width="100%" isLoading={pendingTx} endIcon={<AutoRenewIcon spin color="currentColor" />}>
+            {t('Confirming')}
+          </Button>
+        ) : (
+          <Button
+            width="100%"
+            disabled={
+              !lpTokensToStake.isFinite() ||
+              lpTokensToStake.eq(0) ||
+              lpTokensToStake.gt(new BigNumber(String(getFullDisplayBalance(zappingTokenBalance, 9))))
+            }
+            onClick={async () => {
+              setPendingTx(true)
+              await handleZap()
+              onDismiss?.()
+              setPendingTx(false)
+            }}
+          >
+            {t('Confirm')}
+          </Button>
+        )}
       </ModalActions>
     </Modal>
   )

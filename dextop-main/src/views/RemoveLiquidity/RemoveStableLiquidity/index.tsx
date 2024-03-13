@@ -61,7 +61,6 @@ export default function RemoveStableLiquidity({ currencyA, currencyB, currencyId
   const router = useRouter()
   const native = useNativeCurrency()
 
-  
   const { account, chainId, isWrongNetwork } = useActiveWeb3React()
   const { toastError } = useToast()
   const [tokenA, tokenB] = useMemo(() => [currencyA?.wrapped, currencyB?.wrapped], [currencyA, currencyB])

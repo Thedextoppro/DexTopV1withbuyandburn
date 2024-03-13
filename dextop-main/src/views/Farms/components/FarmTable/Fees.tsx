@@ -13,10 +13,7 @@ const Amount = styled.span<{ fees: number }>`
 `
 
 const Fees: React.FunctionComponent<FeesProps> = ({ fees }) => {
- 
-  return (
-    <Amount fees={fees}>{fees/100}%</Amount>
-  )
+  return <Amount fees={fees}>{fees / 100}%</Amount>
 }
 
 export default Fees

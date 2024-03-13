@@ -24,7 +24,7 @@ const InputRow = styled.div<{ selected: boolean }>`
   justify-content: flex-end;
   padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
-const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' }) <{ zapStyle?: ZapStyle }>`
+const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })<{ zapStyle?: ZapStyle }>`
   padding: 1.5rem;
   background-color: #0c264b;
   border-radius: 24px;
@@ -248,9 +248,9 @@ export default function CurrencyInputPanel({
                   <Text id="pair" bold>
                     {(currency && currency.symbol && currency.symbol.length > 20
                       ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
-                        currency.symbol.length - 5,
-                        currency.symbol.length,
-                      )}`
+                          currency.symbol.length - 5,
+                          currency.symbol.length,
+                        )}`
                       : currency?.symbol) || t('Select a currency')}
                   </Text>
                 )}

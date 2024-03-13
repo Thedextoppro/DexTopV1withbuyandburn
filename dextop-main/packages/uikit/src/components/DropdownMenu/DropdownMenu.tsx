@@ -71,7 +71,7 @@ const DropdownMenu: React.FC<React.PropsWithChildren<DropdownMenuProps>> = ({
   );
 
   return (
-    <Box ref={setTargetRef} {...props} style={{ alignSelf: 'center' }}>
+    <Box ref={setTargetRef} {...props} style={{ alignSelf: "center" }}>
       <Box
         onPointerDown={() => {
           setIsOpen((s) => !s);

@@ -8,10 +8,7 @@
   },
   "tags": {},
   "logoURI": "https://dextop.pro/logo.png",
-  "keywords": [
-    "pancake",
-    "default"
-  ],
+  "keywords": ["pancake", "default"],
   "tokens": [
     {
       "name": "Wrapped BNB",
@@ -446,7 +443,7 @@
       "logoURI": "https://tokens.dextop.pro/tokens/grays.jpg"
     },
     {
-      "name":"Richard's Only Brother",
+      "name": "Richard's Only Brother",
       "symbol": "ROB",
       "address": "0x1c2766F5949A4aA5d4cf0439067051135ffc1b28",
       "chainId": 369,

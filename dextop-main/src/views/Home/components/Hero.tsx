@@ -20,11 +20,10 @@ const textBox: React.CSSProperties = {
   backgroundColor: 'rgba(100, 100, 100, 0.3)',
   borderRadius: '25px',
   border: '1px solid lightgray',
-  padding: '10px'
-};
+  padding: '10px',
+}
 
-const centerAlignStyle = {
-};
+const centerAlignStyle = {}
 
 const flyingAnim = () => keyframes`
   from {

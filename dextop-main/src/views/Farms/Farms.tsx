@@ -39,7 +39,7 @@ const textBox = {
   minWidth: '200px',
   maxWidth: '640px',
   color: 'white',
-};
+}
 
 const imageStyle = {
   borderRadius: '20px',
@@ -47,7 +47,7 @@ const imageStyle = {
   display: 'block',
   margin: 'auto',
   padding: '10px',
-};
+}
 
 const ControlContainer = styled.div`
   display: flex;
@@ -161,12 +161,8 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   const userDataReady = !account || (!!account && userDataLoaded)
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
-  const activeFarms = farmsLP.filter(
-    (farm) => (farm.pid === 0 || farm.pid === 1)
-  )
-  const inactiveFarms = farmsLP.filter(
-    (farm) => (farm.pid !== 0 && farm.pid !== 1)
-  )
+  const activeFarms = farmsLP.filter((farm) => farm.pid === 0 || farm.pid === 1)
+  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.pid !== 1)
   const archivedFarms = farmsLP
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -293,22 +289,42 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <FarmsContext.Provider value={{ chosenFarmsMemoized }}>
       <PageHeader>
-        <Flex flexDirection={['column', 'column', 'row', 'row']} justifyContent='space-between'>
+        <Flex flexDirection={['column', 'column', 'row', 'row']} justifyContent="space-between">
           <Box>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
               {t('X-Yield')}
             </Heading>
           </Box>
-          <Box padding="24px" marginRight={[0, 0, 20, 20]} marginTop={[20, 20, 0, 0]} border="1px solid #524B63" borderRadius={16}>
-            <Heading scale='lg'>{t('Total LP Value')}</Heading>
+          <Box
+            padding="24px"
+            marginRight={[0, 0, 20, 20]}
+            marginTop={[20, 20, 0, 0]}
+            border="1px solid #524B63"
+            borderRadius={16}
+          >
+            <Heading scale="lg">{t('Total LP Value')}</Heading>
             <CardValue value={tvl.toNumber()} prefix="$" fontSize="40px" decimals={2} />
           </Box>
         </Flex>
       </PageHeader>
       <Page>
-      <div style={textBox}>
-        <p style={{marginBottom: '10px'}}><div style={{color: '#FFFFFF'}}>DexTop Finance will have two Liquidity Pools (LP's) in the "<u><a href="/x-yield">Live</a></u>" section fully working and earning yield, these LP's are DEX-WPLS and DEX-DAI, all other LP's can now be found in the "<u><a href="/x-yield/history">Finished</a></u>" section, users MUST withdrawal from these pools ASAP. Simply click on the "-" minus button to remove your stake (please note that all accrued DEX will not be harvestable in these discontinued pools)</div></p>
-      </div>
+        <div style={textBox}>
+          <p style={{ marginBottom: '10px' }}>
+            <div style={{ color: '#FFFFFF' }}>
+              DexTop Finance will have two Liquidity Pools (LP's) in the "
+              <u>
+                <a href="/x-yield">Live</a>
+              </u>
+              " section fully working and earning yield, these LP's are DEX-WPLS and DEX-DAI, all other LP's can now be
+              found in the "
+              <u>
+                <a href="/x-yield/history">Finished</a>
+              </u>
+              " section, users MUST withdrawal from these pools ASAP. Simply click on the "-" minus button to remove
+              your stake (please note that all accrued DEX will not be harvestable in these discontinued pools)
+            </div>
+          </p>
+        </div>
         <ControlContainer>
           <ViewControls>
             <ToggleView idPrefix="clickFarm" viewMode={viewMode} onToggle={setViewMode} />

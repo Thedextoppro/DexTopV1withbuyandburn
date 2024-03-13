@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import swapIcon from '../../../../public/images/home/trade/swap.jpg';
-import presaleIcon from '../../../../public/images/home/trade/presale.jpg';
-import questionsIcon from '../../../../public/images/home/trade/questions.jpg';
-import xyieldIcon from '../../../../public/images/home/trade/x-yield.jpg';
-import xfortuneIcon from '../../../../public/images/home/trade/xfortune.jpg';
+import Image from 'next/image'
+import Link from 'next/link'
+import swapIcon from '../../../../public/images/home/trade/swap.jpg'
+import presaleIcon from '../../../../public/images/home/trade/presale.jpg'
+import questionsIcon from '../../../../public/images/home/trade/questions.jpg'
+import xyieldIcon from '../../../../public/images/home/trade/x-yield.jpg'
+import xfortuneIcon from '../../../../public/images/home/trade/xfortune.jpg'
 
-const iconWidth = 160;
-const iconHeight = 160;
+const iconWidth = 160
+const iconHeight = 160
 
 const iconStyle: React.CSSProperties = {
   borderRadius: '25px',
   boxShadow: '0 0 8px rgba(0, 0, 0, 1)',
-};
+}
 
 const textBox: React.CSSProperties = {
   display: 'flex',
@@ -26,13 +26,13 @@ const textBox: React.CSSProperties = {
   padding: '5px',
   margin: '5px',
   paddingBottom: '10px',
-};
+}
 
 const heroIconsContainer: React.CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap', // Allow items to wrap into multiple rows
   justifyContent: 'center',
-};
+}
 
 const HeroIcons = () => {
   return (
@@ -40,13 +40,7 @@ const HeroIcons = () => {
       <div style={textBox}>
         <Link href="/swap">
           <a>
-            <Image
-              src={swapIcon}
-              alt="DexTop Finance"
-              width={iconWidth}
-              height={iconHeight}
-              style={iconStyle}
-            />
+            <Image src={swapIcon} alt="DexTop Finance" width={iconWidth} height={iconHeight} style={iconStyle} />
             <p>DexTop Finance</p>
           </a>
         </Link>
@@ -68,13 +62,7 @@ const HeroIcons = () => {
       <div style={textBox}>
         <Link href="/questions">
           <a>
-            <Image
-              src={questionsIcon}
-              alt="Questions"
-              width={iconWidth}
-              height={iconHeight}
-              style={iconStyle}
-            />
+            <Image src={questionsIcon} alt="Questions" width={iconWidth} height={iconHeight} style={iconStyle} />
             <p>????</p>
           </a>
         </Link>
@@ -96,19 +84,13 @@ const HeroIcons = () => {
       <div style={textBox}>
         <Link href="/xfortune">
           <a>
-            <Image
-              src={xfortuneIcon}
-              alt="XFortune"
-              width={iconWidth}
-              height={iconHeight}
-              style={iconStyle}
-            />
+            <Image src={xfortuneIcon} alt="XFortune" width={iconWidth} height={iconHeight} style={iconStyle} />
             <p>XFortune</p>
           </a>
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroIcons;
+export default HeroIcons

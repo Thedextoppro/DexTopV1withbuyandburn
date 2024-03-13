@@ -45,8 +45,7 @@ const config: (
       href: '/',
       image: '/images/decorations/pe2.png',
       showItemsOnMobile: false,
-      items: [
-      ].map((item) => addMenuItemSupported(item, chainId)),
+      items: [].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
       label: t('Swap'),
@@ -75,7 +74,7 @@ const config: (
     //   fillIcon: SwapFillIcon,
     //   href: '/x-yield',
     //   showItemsOnMobile: false,
-    //   items: [      
+    //   items: [
     //   ].map((item) => addMenuItemSupported(item, chainId)),
     // },
     // {
@@ -93,7 +92,7 @@ const config: (
     //   fillIcon: SwapFillIcon,
     //   href: '/xamplify',
     //   showItemsOnMobile: false,
-    //   items: [      
+    //   items: [
     //   ].map((item) => addMenuItemSupported(item, chainId)),
     // },
     // {
@@ -124,7 +123,6 @@ const config: (
     //   showItemsOnMobile: false,
     //   items: [].map((item) => addMenuItemSupported(item, chainId)),
     // },
-    
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

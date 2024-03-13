@@ -53,21 +53,16 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
-      
-     
       <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
       <span style={{ fontFamily: "Rubik Broken Fax, sans-serif", color: "white" }}>DexTop</span>
     </>
-    
   );
 
   return (
     <Flex>
-      
-      
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="DexTop home page">
-          {innerLogo }
+          {innerLogo}
         </StyledLink>
       ) : (
         <StyledLink href={href} as={linkComponent} aria-label="DexTop home page">
@@ -75,11 +70,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ isDark, href }) => {
         </StyledLink>
       )}
     </Flex>
-    
   );
-
-
-
 };
 
 export default React.memo(Logo, (prev, next) => prev.isDark === next.isDark);

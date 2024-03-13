@@ -29,7 +29,7 @@ import {
   getPredictionsV1Address,
   getPresaleAddress,
   getLendXAddress,
-  getBurnAddress
+  getBurnAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -96,7 +96,7 @@ import type {
   PotteryDrawAbi,
   Zap,
   PredictionsV1,
-  Burn
+  Burn,
 } from 'config/abi/types'
 import { ChainId } from '@pancakeswap/sdk'
 

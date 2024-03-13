@@ -1,11 +1,11 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 import { Box, Flex } from '@pancakeswap/uikit'
 
 const rotate = keyframes`
   100% {
     transform: rotate(1turn);
   }
-`;
+`
 
 export const StyledSwapContainer = styled(Flex)<{ $isChartExpanded: boolean }>`
   position: relative;
@@ -40,7 +40,7 @@ export const StyledSwapContainer = styled(Flex)<{ $isChartExpanded: boolean }>`
     height: calc(100% - 12px);
     border-radius: 5px;
   }
-`;
+`
 
 export const StyledInputCurrencyWrapper = styled(Box)`
   max-width: 451px;

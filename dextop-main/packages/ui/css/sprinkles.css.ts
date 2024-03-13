@@ -182,4 +182,4 @@ export type Sprinkles = Parameters<typeof sprinkles>[0]
 
 export type OptionalResponsiveObject<Value> = Value | Partial<Record<Breakpoint, Value>>
 export type RequiredResponsiveObject<Value> = Partial<Record<Breakpoint, Value>> &
-  Record<typeof breakpointNames[0], Value>
+  Record<(typeof breakpointNames)[0], Value>

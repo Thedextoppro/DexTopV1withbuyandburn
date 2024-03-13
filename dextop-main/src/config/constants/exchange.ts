@@ -9,7 +9,7 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.GOERLI]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
-  [ChainId.PULSE_CHAIN]: '0x2221EEa96821E537F100C711dE439F79451c6A01'
+  [ChainId.PULSE_CHAIN]: '0x2221EEa96821E537F100C711dE439F79451c6A01',
 }
 
 // used to construct intermediary pairs for trading
@@ -27,7 +27,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.PULSE_CHAIN]: [pulseChainTokens.dai, pulseChainTokens.wbnb]
+  [ChainId.PULSE_CHAIN]: [pulseChainTokens.dai, pulseChainTokens.wbnb],
 }
 
 /**
@@ -57,7 +57,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.busd, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.PULSE_CHAIN]: [pulseChainTokens.xfn, pulseChainTokens.wbnb, pulseChainTokens.dai]
+  [ChainId.PULSE_CHAIN]: [pulseChainTokens.xfn, pulseChainTokens.wbnb, pulseChainTokens.dai],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -67,7 +67,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.PULSE_CHAIN]: [pulseChainTokens.wbnb, pulseChainTokens.dai]
+  [ChainId.PULSE_CHAIN]: [pulseChainTokens.wbnb, pulseChainTokens.dai],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -81,9 +81,7 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
     [bscTokens.busd, bscTokens.usdt],
     [bscTokens.dai, bscTokens.usdt],
   ],
-  [ChainId.PULSE_CHAIN]: [
-    [pulseChainTokens.wbnb, pulseChainTokens.dai],
-  ],
+  [ChainId.PULSE_CHAIN]: [[pulseChainTokens.wbnb, pulseChainTokens.dai]],
 }
 
 export const BIG_INT_ZERO = JSBI.BigInt(0)

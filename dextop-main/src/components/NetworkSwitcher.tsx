@@ -155,7 +155,7 @@ export const NetworkSwitcher = () => {
             <WrongNetworkSelect switchNetwork={switchNetworkAsync} chainId={chainId} />
           ) : (
             <>
-            <NetworkSelect switchNetwork={switchNetworkAsync} chainId={chainId} />
+              <NetworkSelect switchNetwork={switchNetworkAsync} chainId={chainId} />
             </>
           )
         }

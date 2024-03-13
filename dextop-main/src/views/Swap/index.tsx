@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { useEffect, useMemo, useState } from 'react'
-import { CSSProperties } from 'react';
+import { CSSProperties } from 'react'
 import { ChainId, Currency } from '@pancakeswap/sdk'
 import { Heading, Text, Box, Flex, BottomDrawer, useMatchBreakpoints } from '@pancakeswap/uikit'
 import Footer from 'components/Menu/Footer'
@@ -22,9 +22,9 @@ import StableSwapFormContainer from './StableSwap'
 import { StyledInputCurrencyWrapper, StyledSwapContainer } from './styles'
 import SwapTab, { SwapType } from './components/SwapTab'
 
-import { Display7 } from "../../components/Display7";
-import { Display14 } from "../../components/Display14";
-import { getPairsMatchingBaseTokenAddress, getPairInformationByChain } from "dexscreener-api"
+import { Display7 } from '../../components/Display7'
+import { Display14 } from '../../components/Display14'
+import { getPairsMatchingBaseTokenAddress, getPairInformationByChain } from 'dexscreener-api'
 import { pulseChainTokens } from '@pancakeswap/tokens'
 import { useCurrencyBalance } from 'state/wallet/hooks'
 import { BURN_ADDRESS } from 'config/constants'
@@ -46,7 +46,7 @@ const textBox: React.CSSProperties = {
   padding: '10px',
   marginBottom: '25px',
   width: 'min(100%, 620px)',
-};
+}
 
 const gradientOverlayStyle: CSSProperties = {
   position: 'absolute',
@@ -54,16 +54,17 @@ const gradientOverlayStyle: CSSProperties = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundImage: 'radial-gradient(50% 500px at 50% -6%, rgba(0, 41, 102, 0.7) 0%, rgb(7, 24, 50) 50%, rgb(6, 22, 45) 100%), radial-gradient(circle at -70% 50%, rgba(0, 43, 102, 0.7) 0px, transparent 50%)',
+  backgroundImage:
+    'radial-gradient(50% 500px at 50% -6%, rgba(0, 41, 102, 0.7) 0%, rgb(7, 24, 50) 50%, rgb(6, 22, 45) 100%), radial-gradient(circle at -70% 50%, rgba(0, 43, 102, 0.7) 0px, transparent 50%)',
   opacity: 1,
   zIndex: -1,
-};
+}
 
 const backgroundLogo: CSSProperties = {
   position: 'relative',
   background: `url('/images/home/lunar-bunny/background_logo.png') right bottom no-repeat`,
   backgroundSize: 'auto',
-};
+}
 
 export default function Swap() {
   const { t } = useTranslation()
@@ -116,33 +117,35 @@ export default function Swap() {
   const [DEXPriceLCD, setDEXPriceLCD] = useState('-----')
   const [DEXBalanceLCD, setDEXBalanceLCD] = useState('-----')
   const [DEXBalanceValueLCD, setDEXBalanceValueLCD] = useState('-----')
-  const [DEXBurnedBalanceLCD, setDEXBurnedBalanceLCD] = useState('-----');
-  const [DEXBurnedBalanceValueLCD, setDEXBurnedBalanceValueLCD] = useState('-----');
+  const [DEXBurnedBalanceLCD, setDEXBurnedBalanceLCD] = useState('-----')
+  const [DEXBurnedBalanceValueLCD, setDEXBurnedBalanceValueLCD] = useState('-----')
 
   function fetchDEXStats() {
-    getPairInformationByChain("pulsechain", "0x635969e2c12ab4938f9b31bf69aca724df1f2c42").then((responseData) => {
-      setDEXStats(responseData);
-    }).catch((error) => console.log('Error fetching DEXStats', error))
+    getPairInformationByChain('pulsechain', '0x635969e2c12ab4938f9b31bf69aca724df1f2c42')
+      .then((responseData) => {
+        setDEXStats(responseData)
+      })
+      .catch((error) => console.log('Error fetching DEXStats', error))
   }
 
   function calculateSuffix(balance: number): { multipliedBalance: number; suffix: string } {
-    let suffix = ''; // Can be "K" for thousand, "M" for million, "B" for billion, "T" for trillion
+    let suffix = '' // Can be "K" for thousand, "M" for million, "B" for billion, "T" for trillion
 
     if (balance >= 1e12) {
-      balance /= 1e12;
-      suffix = 'T';
+      balance /= 1e12
+      suffix = 'T'
     } else if (balance >= 1e9) {
-      balance /= 1e9;
-      suffix = 'B';
+      balance /= 1e9
+      suffix = 'B'
     } else if (balance >= 1e6) {
-      balance /= 1e6;
-      suffix = 'M';
+      balance /= 1e6
+      suffix = 'M'
     } else if (balance > 1000) {
-      balance /= 1000;
-      suffix = 'K';
+      balance /= 1000
+      suffix = 'K'
     } // If the balance is less than 1000, no suffix needed.
 
-    return { multipliedBalance: balance, suffix };
+    return { multipliedBalance: balance, suffix }
   }
 
   function calculateFormattedString(balance: number, length: number, suffix: string): string {
@@ -150,61 +153,64 @@ export default function Swap() {
       length = length - 1
     }
 
-    let formattedString: string;
+    let formattedString: string
     if (balance < 1) {
       // If the number is less than one, we want to keep only five significant digits including leading zeros before decimal point.
-      const precision = Math.max(length - balance.toString().split('.')[0].length, 0);
-      formattedString = `${balance.toFixed(precision)}`;
+      const precision = Math.max(length - balance.toString().split('.')[0].length, 0)
+      formattedString = `${balance.toFixed(precision)}`
     } else {
-      const precision = Math.max(length - balance.toString().split('.')[0].length, 0);
-      formattedString = `${balance.toFixed(precision)}`;
+      const precision = Math.max(length - balance.toString().split('.')[0].length, 0)
+      formattedString = `${balance.toFixed(precision)}`
     }
-    const decimalPointIndex = formattedString.indexOf(".");
+    const decimalPointIndex = formattedString.indexOf('.')
     if (decimalPointIndex !== -1) {
       // Calculate ASCII code for corresponding letter character
-      let charCode = 97 + parseInt(formattedString[decimalPointIndex-1]);
+      let charCode = 97 + parseInt(formattedString[decimalPointIndex - 1])
       // Replace decimal point and leading number with the calculated letter to encode a digit with a decimal point
-      formattedString = formattedString.replace(formattedString[decimalPointIndex-1] + ".", String.fromCharCode(charCode));
+      formattedString = formattedString.replace(
+        formattedString[decimalPointIndex - 1] + '.',
+        String.fromCharCode(charCode),
+      )
     }
 
-    return formattedString + suffix;
+    return formattedString + suffix
   }
 
   function updateDEXPrice() {
-    let price = DEXStats.pair?.priceUsd;
+    let price = DEXStats.pair?.priceUsd
     if (typeof price === 'undefined') {
-      setDEXPrice(0.0);
-      setDEXPriceLCD("-----");
+      setDEXPrice(0.0)
+      setDEXPriceLCD('-----')
     } else {
-      const multipliedPrice = price * 1000000000000; // Multiply the price by 1 trillion
-      const formattedString = calculateFormattedString(multipliedPrice, 5, '');
-      setDEXPriceLCD(formattedString);
+      const multipliedPrice = price * 1000000000000 // Multiply the price by 1 trillion
+      const formattedString = calculateFormattedString(multipliedPrice, 5, '')
+      setDEXPriceLCD(formattedString)
     }
-    setDEXPrice(prev => price);
+    setDEXPrice((prev) => price)
   }
 
   function updateDEXBalanceLCD() {
     let balance = DEXBalance?.toExact()
     if (typeof balance === 'undefined') {
-      setDEXBalanceLCD("-----");
+      setDEXBalanceLCD('-----')
     } else {
-      let { multipliedBalance, suffix } = calculateSuffix(Number(balance));
-      const formattedString = calculateFormattedString(multipliedBalance, 5, suffix);
-      setDEXBalanceLCD(formattedString);
+      let { multipliedBalance, suffix } = calculateSuffix(Number(balance))
+      const formattedString = calculateFormattedString(multipliedBalance, 5, suffix)
+      setDEXBalanceLCD(formattedString)
     }
   }
 
   function updateDEXBalanceValueLCD() {
     let balance = DEXBalance?.toExact()
     if (typeof balance === 'undefined') {
-      setDEXBalanceValueLCD("-----");
+      setDEXBalanceValueLCD('-----')
     } else {
       if (Number(balance) > 0) {
-        let { multipliedBalance, suffix } = calculateSuffix(Number(balance) * DEXPrice);
-        const formattedString = calculateFormattedString(multipliedBalance, 5, suffix);
-        setDEXBalanceValueLCD(formattedString);
+        let { multipliedBalance, suffix } = calculateSuffix(Number(balance) * DEXPrice)
+        const formattedString = calculateFormattedString(multipliedBalance, 5, suffix)
+        setDEXBalanceValueLCD(formattedString)
       } else {
-        setDEXBalanceValueLCD("    0");
+        setDEXBalanceValueLCD('    0')
       }
     }
   }
@@ -212,68 +218,73 @@ export default function Swap() {
   function updateDEXBurnedBalanceLCD() {
     let balance = DEXBurnedBalance?.toExact()
     if (typeof balance === 'undefined') {
-      setDEXBurnedBalanceLCD("-----");
+      setDEXBurnedBalanceLCD('-----')
     } else {
-      let { multipliedBalance, suffix } = calculateSuffix(Number(balance));
-      const formattedString = calculateFormattedString(multipliedBalance, 5, suffix);
-      setDEXBurnedBalanceLCD(formattedString);
+      let { multipliedBalance, suffix } = calculateSuffix(Number(balance))
+      const formattedString = calculateFormattedString(multipliedBalance, 5, suffix)
+      setDEXBurnedBalanceLCD(formattedString)
     }
   }
 
   function updateDEXBurnedBalanceValueLCD() {
     let balance = DEXBurnedBalance?.toExact()
     if (typeof balance === 'undefined') {
-      setDEXBurnedBalanceValueLCD("-----");
+      setDEXBurnedBalanceValueLCD('-----')
     } else {
       if (Number(balance) > 0) {
-        let { multipliedBalance, suffix } = calculateSuffix(Number(balance) * DEXPrice);
-        const formattedString = calculateFormattedString(multipliedBalance, 5, suffix);
-        setDEXBurnedBalanceValueLCD(formattedString);
+        let { multipliedBalance, suffix } = calculateSuffix(Number(balance) * DEXPrice)
+        const formattedString = calculateFormattedString(multipliedBalance, 5, suffix)
+        setDEXBurnedBalanceValueLCD(formattedString)
       } else {
-        setDEXBurnedBalanceValueLCD("    0");
+        setDEXBurnedBalanceValueLCD('    0')
       }
     }
   }
 
   useEffect(() => {
-    fetchDEXStats();
-    const interval = setInterval(fetchDEXStats, 30000);
-    return () => clearInterval(interval) ;
-  }, []);
+    fetchDEXStats()
+    const interval = setInterval(fetchDEXStats, 30000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
-    if (typeof DEXStats !== 'undefined') updateDEXPrice();
-    const interval = setInterval(updateDEXPrice, 30000);
-    return () => clearInterval(interval);
-  }, [DEXStats]);
+    if (typeof DEXStats !== 'undefined') updateDEXPrice()
+    const interval = setInterval(updateDEXPrice, 30000)
+    return () => clearInterval(interval)
+  }, [DEXStats])
 
   useEffect(() => {
-    if (typeof DEXBalance !== 'undefined') updateDEXBalanceLCD();
-    const interval = setInterval(updateDEXBalanceLCD, 2000);
-    return () => clearInterval(interval);
-  }, [DEXBalance]);
+    if (typeof DEXBalance !== 'undefined') updateDEXBalanceLCD()
+    const interval = setInterval(updateDEXBalanceLCD, 2000)
+    return () => clearInterval(interval)
+  }, [DEXBalance])
 
   useEffect(() => {
-    if (typeof DEXBalance !== 'undefined') updateDEXBalanceValueLCD();
-    const interval = setInterval(updateDEXBalanceValueLCD, 2000);
-    return () => clearInterval(interval);
-  }, [DEXBalance]);
+    if (typeof DEXBalance !== 'undefined') updateDEXBalanceValueLCD()
+    const interval = setInterval(updateDEXBalanceValueLCD, 2000)
+    return () => clearInterval(interval)
+  }, [DEXBalance])
 
   useEffect(() => {
-    if (typeof DEXBurnedBalance !== 'undefined') updateDEXBurnedBalanceLCD();
-    const interval = setInterval(updateDEXBurnedBalanceLCD, 2000);
-    return () => clearInterval(interval);
-  }, [DEXBurnedBalance]);
+    if (typeof DEXBurnedBalance !== 'undefined') updateDEXBurnedBalanceLCD()
+    const interval = setInterval(updateDEXBurnedBalanceLCD, 2000)
+    return () => clearInterval(interval)
+  }, [DEXBurnedBalance])
 
   useEffect(() => {
-    if (typeof DEXBurnedBalance !== 'undefined') updateDEXBurnedBalanceValueLCD();
-    const interval = setInterval(updateDEXBurnedBalanceValueLCD, 2000);
-    return () => clearInterval(interval);
-  }, [DEXBurnedBalance]);
+    if (typeof DEXBurnedBalance !== 'undefined') updateDEXBurnedBalanceValueLCD()
+    const interval = setInterval(updateDEXBurnedBalanceValueLCD, 2000)
+    return () => clearInterval(interval)
+  }, [DEXBurnedBalance])
 
   return (
     // <div style={backgroundLogo}>
-    <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded} isSwap={false} style={{minHeight: "calc(100vh - 190px)"}}>
+    <Page
+      removePadding={isChartExpanded}
+      hideFooterOnDesktop={isChartExpanded}
+      isSwap={false}
+      style={{ minHeight: 'calc(100vh - 190px)' }}
+    >
       <div style={gradientOverlayStyle}></div>
       <Flex width="100%" justifyContent="center" position="relative">
         <Flex flexDirection="column">

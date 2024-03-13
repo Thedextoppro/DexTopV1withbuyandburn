@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface SpinnerProps {
-  size?: number;
-  pulseLogo?: boolean;
+  size?: number
+  pulseLogo?: boolean
 }
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 205, pulseLogo = false }) => {
-  const [isSafari, setIsSafari] = useState(false);
+  const [isSafari, setIsSafari] = useState(false)
 
   useEffect(() => {
-    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    setIsSafari(isSafariBrowser);
-  }, []);
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+    setIsSafari(isSafariBrowser)
+  }, [])
 
   return (
     <>
@@ -25,12 +25,12 @@ const Spinner: React.FC<SpinnerProps> = ({ size = 205, pulseLogo = false }) => {
         </video>
       )}
       {pulseLogo && ( */}
-        <div>
-          <Image src="/images/logoWithText.jpg" width={size} height={size} />
-        </div>
+      <div>
+        <Image src="/images/logoWithText.jpg" width={size} height={size} />
+      </div>
       {/* )} */}
     </>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner

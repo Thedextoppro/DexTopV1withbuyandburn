@@ -15,5 +15,4 @@ const useApproveFarm = (lpContract: Contract) => {
   return { onApprove: handleApprove }
 }
 
-
 export default useApproveFarm

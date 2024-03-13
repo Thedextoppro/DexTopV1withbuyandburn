@@ -11,22 +11,51 @@ const StyledNotFound = styled.div`
   height: calc(100vh - 64px);
   justify-content: center;
 `
-
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+`;
 const ComingSoon = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
-      <StyledNotFound>
-        <LogoIcon width="64px" mb="8px" />
-        <Heading scale="xxl">Welcome To DexTop</Heading>
-        <br></br>
-         <Link href="/swap" passHref>
-          <Button as="a" scale="sm">
-            {t('Open App')}
-          </Button>
-        </Link> 
-      </StyledNotFound>
+      
+        
+        
+        <ButtonContainer>
+          <Link href="/swap" passHref>
+            <Button as="a" scale="sm">
+              {t('Open App')}
+            </Button>
+          </Link>
+          <Link href="/burn" passHref>
+            <Button as="a" scale="sm">
+              {t('Burn')}
+            </Button>
+          </Link>
+          <Link href="https://info.dextop.pro/" passHref>
+            <Button as="a" scale="sm">
+              {t('Info')}
+            </Button>
+          </Link>
+        </ButtonContainer>
+<br></br>
+        <iframe
+          src="https://info.dextop.pro/"
+          title="Example iframe"
+          width="100%"
+          height="1000"
+          style={{
+            border: '3px solid green', 
+            borderRadius: '10px', 
+          }}
+        ></iframe>
+
+
+      
     </Page>
   )
 }

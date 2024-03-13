@@ -339,7 +339,7 @@ export const getNftsByBunnyIdSg = async (
         }
       `,
       {
-        collectionAddress: "",
+        collectionAddress: '',
         where,
         orderDirection,
       },
@@ -914,7 +914,7 @@ export const combineApiAndSgResponseToNftToken = (
     name: apiMetadata.name,
     description: apiMetadata.description,
     collectionName: apiMetadata.collection.name,
-    collectionAddress: "",
+    collectionAddress: '',
     image: apiMetadata.image,
     marketData,
     attributes,

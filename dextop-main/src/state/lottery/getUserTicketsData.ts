@@ -49,7 +49,7 @@ export const fetchUserTicketsForOneRound = async (account: string, lotteryId: st
     numReturned = response.length
     ticketData.push(...response)
   }
-  
+
   return ticketData
 }
 

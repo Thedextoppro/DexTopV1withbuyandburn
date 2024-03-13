@@ -38,7 +38,11 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
 
   return (
     <Modal title={t('Unstake LP tokens')} onDismiss={onDismiss}>
-      Unstake<br/>{fullBalance}<br/>{tokenName}
+      Unstake
+      <br />
+      {fullBalance}
+      <br />
+      {tokenName}
       <ModalActions>
         <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx}>
           {t('Cancel')}

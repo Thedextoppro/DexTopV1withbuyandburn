@@ -116,12 +116,11 @@ export function useCurrencyBalances(
 
   return useMemo(
     () =>
-    currencies?.map((currency) => {
-      if (!account || !currency) return undefined
-      if (currency?.isToken) {
-       
-        return tokenBalances[currency.address]
-      }
+      currencies?.map((currency) => {
+        if (!account || !currency) return undefined
+        if (currency?.isToken) {
+          return tokenBalances[currency.address]
+        }
         if (currency?.isNative) return nativeBalance[account]
         return undefined
       }) ?? [],

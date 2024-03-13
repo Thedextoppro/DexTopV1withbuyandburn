@@ -54,10 +54,10 @@ interface SerializedFarmUserData {
 }
 
 export interface NFTTokenInfo {
-  tierType: number;
-  claimedAmount: BigNumber;
-  lastClaimedTime: number;
-  isExpired: boolean;
+  tierType: number
+  claimedAmount: BigNumber
+  lastClaimedTime: number
+  isExpired: boolean
 }
 
 export interface SerializedNftUserData {
@@ -181,7 +181,7 @@ export interface SerializedFarmsState {
 }
 
 export interface SerializedNftsState {
-  data: SerializedNft  
+  data: SerializedNft
   isInitialized: boolean
   isLoading: boolean
 }

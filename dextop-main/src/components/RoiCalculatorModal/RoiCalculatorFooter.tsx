@@ -160,7 +160,7 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
                 {t('Calculated based on current rates.')}
               </Text>
             </li>
-           
+
             <li>
               <Text fontSize="12px" textAlign="center" color="textSubtle" display="inline" lineHeight={1.1}>
                 {t(

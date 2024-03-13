@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import BigNumber from 'bignumber.js'
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 import { Card, Flex, Text, Skeleton } from '@pancakeswap/uikit'
 import { getBlockExploreLink } from 'utils'
 import { useTranslation } from 'contexts/Localization'
@@ -18,7 +18,7 @@ const rotate = keyframes`
   100% {
     transform: rotate(1turn);
   }
-`;
+`
 
 const ConicBorder = styled.div`
   position: relative;
@@ -54,7 +54,7 @@ const ConicBorder = styled.div`
     height: calc(100% - 12px);
     border-radius: 5px;
   }
-`;
+`
 
 const StyledCard = styled(Card)`
   align-self: baseline;
@@ -110,8 +110,77 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
 
   return (
     <>
-    {removed !== true ?
-      <ConicBorder>
+      {removed !== true ? (
+        <ConicBorder>
+          <StyledCard isActive={false}>
+            <FarmCardInnerContainer>
+              <CardHeading
+                lpLabel={lpLabel}
+                multiplier={farm.multiplier}
+                isCommunityFarm={farm.isCommunity}
+                token={farm.token}
+                quoteToken={farm.quoteToken}
+              />
+              <Flex justifyContent="space-between" alignItems="center">
+                <Text>{t('APR')}:</Text>
+                <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+                  {farm.apr ? (
+                    <ApyButton
+                      variant="text-and-button"
+                      pid={farm.pid}
+                      lpSymbol={farm.lpSymbol}
+                      multiplier={farm.multiplier}
+                      lpLabel={lpLabel}
+                      addLiquidityUrl={addLiquidityUrl}
+                      cakePrice={cakePrice}
+                      apr={farm.apr}
+                      displayApr={displayApr}
+                    />
+                  ) : (
+                    <Skeleton height={24} width={80} />
+                  )}
+                </Text>
+              </Flex>
+              <Flex justifyContent="space-between">
+                <Text>{t('Earn')}:</Text>
+                <Text bold>{earnLabel}</Text>
+              </Flex>
+              <Flex justifyContent="space-between">
+                <Text>{t('Deposit Fee')}:</Text>
+                <Text bold>{farm.depositFeeBP / 100}%</Text>
+              </Flex>
+              <Flex justifyContent="space-between">
+                <Text>{t('Withdraw Fee')}:</Text>
+                <Text bold>{farm.withdrawFeeBP / 100}%</Text>
+              </Flex>
+              <CardActionsContainer
+                farm={farm}
+                lpLabel={lpLabel}
+                account={account}
+                addLiquidityUrl={addLiquidityUrl}
+                displayApr={displayApr}
+              />
+            </FarmCardInnerContainer>
+
+            <ExpandingWrapper>
+              <ExpandableSectionButton onClick={toggleExpandableSection} expanded={showExpandableSection} />
+              {showExpandableSection && (
+                <DetailsSection
+                  farm={farm}
+                  removed={removed}
+                  bscScanAddress={getBlockExploreLink(farm.lpAddress, 'address')}
+                  infoAddress={`/info/pool/${farm.lpAddress}`}
+                  totalValueFormatted={totalValueFormatted}
+                  lpLabel={lpLabel}
+                  addLiquidityUrl={addLiquidityUrl}
+                  isCommunity={farm.isCommunity}
+                  auctionHostingEndDate={farm.auctionHostingEndDate}
+                />
+              )}
+            </ExpandingWrapper>
+          </StyledCard>
+        </ConicBorder>
+      ) : (
         <StyledCard isActive={false}>
           <FarmCardInnerContainer>
             <CardHeading
@@ -147,11 +216,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
             </Flex>
             <Flex justifyContent="space-between">
               <Text>{t('Deposit Fee')}:</Text>
-              <Text bold>{farm.depositFeeBP/100}%</Text>
+              <Text bold>{farm.depositFeeBP / 100}%</Text>
             </Flex>
             <Flex justifyContent="space-between">
               <Text>{t('Withdraw Fee')}:</Text>
-              <Text bold>{farm.withdrawFeeBP/100}%</Text>
+              <Text bold>{farm.withdrawFeeBP / 100}%</Text>
             </Flex>
             <CardActionsContainer
               farm={farm}
@@ -179,75 +248,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
             )}
           </ExpandingWrapper>
         </StyledCard>
-      </ConicBorder>
-    : <StyledCard isActive={false}>
-          <FarmCardInnerContainer>
-            <CardHeading
-              lpLabel={lpLabel}
-              multiplier={farm.multiplier}
-              isCommunityFarm={farm.isCommunity}
-              token={farm.token}
-              quoteToken={farm.quoteToken}
-            />
-            <Flex justifyContent="space-between" alignItems="center">
-              <Text>{t('APR')}:</Text>
-              <Text bold style={{ display: 'flex', alignItems: 'center' }}>
-                {farm.apr ? (
-                  <ApyButton
-                    variant="text-and-button"
-                    pid={farm.pid}
-                    lpSymbol={farm.lpSymbol}
-                    multiplier={farm.multiplier}
-                    lpLabel={lpLabel}
-                    addLiquidityUrl={addLiquidityUrl}
-                    cakePrice={cakePrice}
-                    apr={farm.apr}
-                    displayApr={displayApr}
-                  />
-                ) : (
-                  <Skeleton height={24} width={80} />
-                )}
-              </Text>
-            </Flex>
-            <Flex justifyContent="space-between">
-              <Text>{t('Earn')}:</Text>
-              <Text bold>{earnLabel}</Text>
-            </Flex>
-            <Flex justifyContent="space-between">
-              <Text>{t('Deposit Fee')}:</Text>
-              <Text bold>{farm.depositFeeBP/100}%</Text>
-            </Flex>
-            <Flex justifyContent="space-between">
-              <Text>{t('Withdraw Fee')}:</Text>
-              <Text bold>{farm.withdrawFeeBP/100}%</Text>
-            </Flex>
-            <CardActionsContainer
-              farm={farm}
-              lpLabel={lpLabel}
-              account={account}
-              addLiquidityUrl={addLiquidityUrl}
-              displayApr={displayApr}
-            />
-          </FarmCardInnerContainer>
-
-          <ExpandingWrapper>
-            <ExpandableSectionButton onClick={toggleExpandableSection} expanded={showExpandableSection} />
-            {showExpandableSection && (
-              <DetailsSection
-                farm={farm}
-                removed={removed}
-                bscScanAddress={getBlockExploreLink(farm.lpAddress, 'address')}
-                infoAddress={`/info/pool/${farm.lpAddress}`}
-                totalValueFormatted={totalValueFormatted}
-                lpLabel={lpLabel}
-                addLiquidityUrl={addLiquidityUrl}
-                isCommunity={farm.isCommunity}
-                auctionHostingEndDate={farm.auctionHostingEndDate}
-              />
-            )}
-          </ExpandingWrapper>
-        </StyledCard>
-    }
+      )}
     </>
   )
 }
